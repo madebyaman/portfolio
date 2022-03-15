@@ -145,7 +145,7 @@ export const projectsList: Project[] = [
   {
     name: 'Writing',
     description:
-      'Beside programming, I also love writing. Here are a few of my programming articles.',
+      'Beside programming, I also love writing. Check out my programming articles.',
     highlighted: false,
     backgroundColor: '#F0FFF4',
     links: [

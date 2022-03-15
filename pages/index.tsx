@@ -54,8 +54,8 @@ const Home: NextPage = () => {
             />
           </div>
           <div>
-            <h1 className="text-7xl font-serif">Hi, I am Aman</h1>
-            <div className="text-md text-gray-700 font-semibold">
+            <h1>Hi, I am Aman</h1>
+            <div>
               <p>
                 A web developer living in India 🇮🇳, a dog lover 🐶, and a
                 cricket enthusiast 🏏. I am currently looking for job as a

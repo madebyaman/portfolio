@@ -1,0 +1,55 @@
+@import url('https://igoradamenko.github.io/awsm.css/css/awsm.min.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,700&display=swap');
+
+html,
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+body main {
+  max-width: 60rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lora', serif;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+h4 {
+  font-size: 26px;
+}
+
+a {
+  color: #2d3748 !important;
+  border-bottom: 2px solid;
+  border-color: #2d3748;
+  transition: all 200ms ease-out;
+  text-decoration: none;
+}
+
+a:hover {
+  border-color: #4299e1;
+}
+
+form {
+  margin: unset;
+  max-width: 70%;
+}

@@ -1,0 +1,199 @@
+.hero {
+  display: grid;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 680px) {
+  .hero {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.hero h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 21px;
+  color: '#718096';
+  line-height: 1.6;
+}
+
+.hero img {
+  border-radius: 100%;
+}
+
+.social {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.social a {
+  color: #cbd5e0 !important;
+  border: 0;
+  font-size: 24px;
+}
+
+.social a:hover {
+  color: #4a5568 !important;
+}
+
+.skills {
+  margin-bottom: 8rem;
+}
+
+.skillsList {
+  display: grid;
+  margin-top: 4rem;
+  text-align: center;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 40px;
+}
+
+.skillIcon {
+  color: #cbd5e0;
+  font-size: 42px;
+}
+
+.projects {
+  margin: 80px 0;
+}
+
+.projectList {
+  display: grid;
+  gap: 20px;
+}
+
+.project {
+  padding: 2rem 0 1.5rem 1.5rem;
+  border-radius: 10px;
+}
+
+.projectImage {
+  transition: all 200ms ease-out;
+}
+
+.project:hover .projectImage {
+  transform: translateY(-5px);
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 680px) {
+  .project {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.project .projectText {
+  padding: 4rem 1rem;
+}
+.project h3 {
+  margin: 0 0 20px;
+}
+
+.project a {
+  padding: 10px 15px;
+  background-color: rgba(256, 256, 256, 0.1);
+  color: inherit !important;
+  text-decoration: none;
+  transition: all 200ms ease-out;
+  border-radius: 5px;
+  border: 0;
+}
+
+.project a:hover {
+  background-color: rgba(256, 256, 256, 1);
+  color: #2d3748 !important;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 10px;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.projects .heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.heading h2 {
+  margin: 0;
+}
+
+.projects .allProjectsLink {
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 2rem;
+}
+
+.resume {
+  margin: 5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.resume h2 {
+  margin-top: 0;
+}
+
+.resume a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contactForm {
+  margin: 3rem 0;
+}
+
+.contactForm h2 {
+  margin-bottom: 2rem;
+}
+
+.contactForm label {
+  margin-bottom: 2.5rem;
+}
+
+.contactForm input,
+.contactForm textarea {
+  border-color: #1a202c;
+  border-radius: 5px;
+  padding: 1.5rem 1rem;
+}
+
+.contactForm input[type='submit'] {
+  height: unset;
+  padding: 1.2rem 1.5rem;
+  background-color: transparent;
+}
+
+.contactForm input[type='submit']:hover {
+  background-color: #2d3748;
+  color: white;
+}

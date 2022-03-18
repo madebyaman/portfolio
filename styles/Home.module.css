@@ -71,11 +71,26 @@
 .projectList {
   display: grid;
   gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 680px) {
+  .projectList {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .project {
   padding: 2rem 0 1.5rem 1.5rem;
+  border: 1px solid #eee;
   border-radius: 10px;
+  color: inherit;
+}
+
+.highlightedProject {
+  color: white;
+  grid-column: span 2;
+  border: none;
 }
 
 .projectImage {
@@ -107,15 +122,25 @@
 
 .project a {
   padding: 10px 15px;
-  background-color: rgba(256, 256, 256, 0.1);
-  color: inherit !important;
   text-decoration: none;
   transition: all 200ms ease-out;
   border-radius: 5px;
-  border: 0;
+  border: 1px solid #eee;
+  color: inherit;
 }
 
 .project a:hover {
+  background-color: #444;
+  color: white !important;
+}
+
+.highlightedProject a {
+  background-color: rgba(256, 256, 256, 0.1);
+  color: inherit !important;
+  border: 0;
+}
+
+.highlightedProject a:hover {
   background-color: rgba(256, 256, 256, 1);
   color: #2d3748 !important;
 }

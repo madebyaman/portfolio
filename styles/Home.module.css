@@ -1,31 +1,22 @@
-.hero {
-  display: grid;
-  align-items: flex-start;
-  gap: 4rem;
-  margin-top: 10rem;
-  margin-bottom: 5rem;
-  grid-template-columns: 1fr;
+.heroFlex {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
 }
 
 @media (min-width: 680px) {
-  .hero {
-    grid-template-columns: 1fr 3fr;
+  .heroFlex {
+    flex-direction: row;
   }
+}
+
+.heroImage img {
+  border-radius: 100%;
 }
 
 .hero h1 {
   margin-top: 0;
   margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 21px;
-  color: '#718096';
-  line-height: 1.6;
-}
-
-.hero img {
-  border-radius: 100%;
 }
 
 .social {
@@ -42,18 +33,18 @@
 }
 
 .social a:hover {
-  color: #4a5568 !important;
+  color: var(--color-link-hover) !important;
 }
 
 .skills {
-  margin-bottom: 8rem;
+  margin: 6em 0;
 }
 
 .skillsList {
   display: grid;
-  margin-top: 4rem;
-  text-align: center;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 2em;
+  /* text-align: center; */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   justify-content: center;
   column-gap: 10px;
   row-gap: 40px;
@@ -83,14 +74,19 @@
 .project {
   padding: 2rem 0 1.5rem 1.5rem;
   border: 1px solid #eee;
-  border-radius: 10px;
+  border-radius: 4px;
   color: inherit;
 }
 
 .highlightedProject {
-  color: white;
   grid-column: span 2;
   border: none;
+  color: white;
+}
+
+.highlightedProject h3,
+.highlightedProject p {
+  color: rgba(256, 256, 256, 0.9);
 }
 
 .projectImage {
@@ -121,10 +117,11 @@
 }
 
 .project a {
+  font-size: 16px;
   padding: 10px 15px;
+  border-radius: 4px;
   text-decoration: none;
   transition: all 200ms ease-out;
-  border-radius: 5px;
   border: 1px solid #eee;
   color: inherit;
 }
@@ -205,20 +202,15 @@
   margin-bottom: 2.5rem;
 }
 
-.contactForm input,
-.contactForm textarea {
-  border-color: #1a202c;
-  border-radius: 5px;
-  padding: 1.5rem 1rem;
-}
-
 .contactForm input[type='submit'] {
   height: unset;
-  padding: 1.2rem 1.5rem;
-  background-color: transparent;
+  padding: 12px 22px;
+  background-color: var(--color-link) !important;
+  color: white;
+  cursor: pointer;
+  transition: all 200ms ease-out;
 }
 
 .contactForm input[type='submit']:hover {
-  background-color: #2d3748;
-  color: white;
+  background-color: var(--color-link-hover) !important;
 }

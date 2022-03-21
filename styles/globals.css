@@ -14,15 +14,9 @@ body {
 }
 
 body main {
-  max-width: 60rem;
   margin: 0;
-  padding: 120px;
-}
-
-@media (min-width: 1440px) {
-  body main {
-    margin: 0 auto;
-  }
+  padding: 0;
+  max-width: fit-content;
 }
 
 h1,

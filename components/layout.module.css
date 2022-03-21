@@ -1,0 +1,18 @@
+.container {
+  max-width: 50rem;
+  padding: 0 1rem;
+  margin: 8rem auto 4rem;
+}
+
+.header {
+  max-width: max-content;
+  margin: 0 0 2rem 0;
+}
+
+.backToHome {
+  margin: 3rem 0 0;
+}
+
+.headerImage {
+  border-radius: 100%;
+}

@@ -134,8 +134,8 @@ export const projectsList: Project[] = [
     links: [
       {
         name: 'Read more',
-        url: 'https://hackerjourney.com/posts/copywriter-blocks/',
-        externalLink: true,
+        url: 'project/copywriter-blocks',
+        externalLink: false,
       },
       {
         name: 'View on Github',

@@ -12,7 +12,8 @@ body {
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-body main {
+body main,
+body article {
   margin: 0;
   padding: 0;
   max-width: fit-content;

@@ -15,7 +15,8 @@
 
 .headerImage {
   border-radius: 100%;
-  border-bottom: 2rem;
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
 .headerBreadcrumbs {

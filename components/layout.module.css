@@ -16,3 +16,7 @@
 .headerImage {
   border-radius: 100%;
 }
+
+.headerImageLink {
+  border-bottom: none;
+}

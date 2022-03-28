@@ -12,6 +12,7 @@ import {
   SiFirebase,
   SiNodedotjs,
   SiVuedotjs,
+  SiWordpress,
 } from 'react-icons/si';
 
 export const socialLinks = [
@@ -39,6 +40,7 @@ export const skillsList = [
   { name: 'Redux', icon: <SiRedux /> },
   { name: 'Firebase', icon: <SiFirebase /> },
   { name: 'Node JS', icon: <SiNodedotjs /> },
+  { name: 'WordPress', icon: <SiWordpress /> },
 ];
 
 export type Project = {

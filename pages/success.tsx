@@ -1,5 +1,12 @@
-export default function Success() {
+import type { NextPage } from 'next';
+import Layout from '../components/layout';
+
+const Success: NextPage = () => {
   return (
-    <main style={{ textAlign: 'center' }}>Form successfully submitted!</main>
+    <Layout>
+      <p>Form successfully submitted!</p>
+    </Layout>
   );
-}
+};
+
+export default Success;

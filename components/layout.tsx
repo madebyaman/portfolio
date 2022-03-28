@@ -41,7 +41,7 @@ export default function Layout({
           ) : (
             <>
               <Link href="/">
-                <a>
+                <a className={styles.headerImageLink}>
                   <Image
                     priority
                     src="/images/aman.png"

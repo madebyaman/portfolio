@@ -173,7 +173,13 @@ const Home: NextPage = () => {
       </section>
       <section className={styles.contactForm}>
         <h2>Contact</h2>
-        <form action="/success" method="post" data-netlify="true">
+        <form
+          name="contact"
+          action="/success"
+          method="POST"
+          data-netlify="true"
+        >
+          <input type="hidden" name="form-name" value="contact" />
           <label>
             Name
             <input type="text" required name="Name" />

@@ -180,17 +180,12 @@ const Home: NextPage = () => {
           data-netlify="true"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <label>
-            Name
-            <input type="text" required name="Name" />
-          </label>
-          <label>
-            Email
-            <input type="email" required name="Name" />
-          </label>
-          <label>
-            Message: <textarea />
-          </label>
+          <label htmlFor="name">Name</label>
+          <input type="text" id="name" required name="Name" />
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" required name="Name" />
+          <label htmlFor="message">Message:</label>
+          <textarea id="message" />
           <input type="submit" />
         </form>
       </section>

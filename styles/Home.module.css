@@ -199,7 +199,11 @@
 }
 
 .contactForm label {
-  margin-bottom: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contactForm input {
+  margin-bottom: 2rem !important;
 }
 
 .contactForm input[type='submit'] {

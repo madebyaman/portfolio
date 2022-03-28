@@ -208,7 +208,7 @@
 
 .contactForm input[type='submit'] {
   height: unset;
-  padding: 12px 22px;
+  padding: 1rem 2rem !important;
   background-color: var(--color-link) !important;
   color: white;
   cursor: pointer;

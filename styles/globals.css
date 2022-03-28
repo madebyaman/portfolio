@@ -77,7 +77,7 @@ form textarea {
   background-color: #f2f6f9 !important;
   border: none !important;
   border-radius: none;
-  padding: 12px;
+  padding: 1.5rem !important;
 }
 
 pre > code {

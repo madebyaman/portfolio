@@ -1,5 +1,5 @@
 @import url('https://igoradamenko.github.io/awsm.css/css/awsm.min.css');
-
+@import url('https://unpkg.com/@highlightjs/cdn-assets@11.5.0/styles/default.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600;800&&display=swap');
 
 :root {
@@ -78,4 +78,8 @@ form textarea {
   border: none !important;
   border-radius: none;
   padding: 12px;
+}
+
+pre > code {
+  border: none;
 }

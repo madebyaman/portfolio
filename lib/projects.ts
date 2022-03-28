@@ -3,6 +3,8 @@ import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { serialize } from 'next-mdx-remote/serialize';
+import rehypeHighlight from 'rehype-highlight';
 
 const projectsDirectory = path.join(process.cwd(), 'projects');
 
@@ -37,14 +39,13 @@ export async function getProjectData(id: string) {
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
+  const processedContent = await serialize(matterResult.content, {
+    mdxOptions: { rehypePlugins: [rehypeHighlight] },
+  });
 
   return {
     id,
-    contentHtml,
+    contentHtml: processedContent,
     ...matterResult.data,
   };
 }

@@ -136,22 +136,22 @@ When someone selects a book, we add bookId to the current note.
 And on saving the note, first we check if a book with bookId exists in the db. If not, we first upload the book cover to cloudinary and then add the url to the book.
 
 ```ts
-        // First upload the book cover if selectedBook.cover exists
-        const coverURL = await uploadBookCover(selectedBook.cover);
-        const newBook = {
-          ...selectedBook,
-          photoURL: coverURL || undefined,
-        };
+// First upload the book cover if selectedBook.cover exists
+const coverURL = await uploadBookCover(selectedBook.cover);
+const newBook = {
+  ...selectedBook,
+  photoURL: coverURL || undefined,
+};
 
-        // The, get the URL of the uploaded image and set it to selectedBook.photoURL
-        try {
-          addBook(newBook);
-        } catch (e) {
-          showFlashMessage({
-            success: false,
-            message: 'Error saving the selected book',
-          });
-        }
+// The, get the URL of the uploaded image and set it to selectedBook.photoURL
+try {
+  addBook(newBook);
+} catch (e) {
+  showFlashMessage({
+    success: false,
+    message: 'Error saving the selected book',
+  });
+}
 ```
 
 ### Custom Hooks

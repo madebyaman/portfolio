@@ -1,5 +1,5 @@
 ---
-title: WordPress Blocks Plugin
+title: 'WordPress Blocks Plugin: Project by Aman Thakur'
 date: '2021-11-12'
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Activity Logger App
+title: 'Activity Logger App: Project by Aman Thakur'
 date: '2022-03-14'
 ---
 

@@ -3,7 +3,7 @@ import Layout from '../components/layout';
 
 const Success: NextPage = () => {
   return (
-    <Layout>
+    <Layout home={false} pageTitle={'Success'}>
       <p>Form successfully submitted!</p>
     </Layout>
   );

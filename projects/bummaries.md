@@ -1,5 +1,5 @@
 ---
-title:  Bummaries App
+title:  'Bummaries App: Project by Aman Thakur'
 date: '2022-03-12'
 ---
 
@@ -44,8 +44,8 @@ Firstly, I used React Error Boundary to wrap the entire application and some vul
 Secondly, I used local state to handle errors in pages like Signin, Sign up. etc
 
 ```jsx
-  const [error, setError] = useState()
-  setError(message);
+const [error, setError] = useState()
+setError(message);
 ```
 
 I also used custom error classes to handle errors thrown while doing async operations.
@@ -55,7 +55,7 @@ export class SlugError extends Error {}
 throw new SlugError('Provided slug exists');
 ```
 
-Finally, for handling server side errors, I would return null from the getServerSideProps method and handle it in the component.
+Finally, for handling server side errors, I would return null from the `getServerSideProps` method and handle it in the component.
 
 ### Data Fetching
 
@@ -63,35 +63,35 @@ In the app, I employed many strategies for data fetching.
 First off, I used the good old useEffect for getting data.
 
 ```jsx
-  useEffect(() => {
-    const getNotes = async () => {
-      try {
-        const unsub = await subscribeToCurrentUserNotes((result) => {
-          dispatch({ type: 'LOADING' });
-          setCards(result);
-          dispatch({ type: 'LOADED' });
-        });
-        return unsub;
-      } catch (e) {
-        throw e;
-      }
-    };
-    getNotes();
-  }, [dispatch]);
+useEffect(() => {
+  const getNotes = async () => {
+    try {
+      const unsub = await subscribeToCurrentUserNotes((result) => {
+        dispatch({ type: 'LOADING' });
+        setCards(result);
+        dispatch({ type: 'LOADED' });
+      });
+      return unsub;
+    } catch (e) {
+      throw e;
+    }
+  };
+  getNotes();
+}, [dispatch]);
 ```
 
 For data that is needed by many parts of the application, I used easy-peasy thunks and called them from `useEffect`.
 
 ```jsx
-    /**
-     * Gets a book with the given bookId. And updates `selectedBook` state.
-     */
-    fetchBook: thunk(async (actions, payload) => {
-      const book = await getBook(payload.bookId);
-      if (book && payload.isSubscribed) {
-        actions.updateSelectedBook(book);
-      }
-    }),
+/**
+ * Gets a book with the given bookId. And updates `selectedBook` state.
+ */
+fetchBook: thunk(async (actions, payload) => {
+  const book = await getBook(payload.bookId);
+  if (book && payload.isSubscribed) {
+    actions.updateSelectedBook(book);
+  }
+}),
 ```
 
 Finally, I also used `getServerSideProps` method from NextJS.
@@ -122,15 +122,15 @@ Hence I handle uploading book covers myself. Here's how I implemented this:
 When someone selects a book, we add bookId to the current note.
 
 ```ts
-  const handleSelectChange = (newVal: Book | null) => {
-    if (newVal) {
-      const value = { ...newVal, key: convertSlashToPlus(newVal.key) };
-      setSelectedBook(value);
-      updateBookId(value.key);
-      return;
-    }
-    setSelectedBook(newVal);
-  };
+const handleSelectChange = (newVal: Book | null) => {
+  if (newVal) {
+    const value = { ...newVal, key: convertSlashToPlus(newVal.key) };
+    setSelectedBook(value);
+    updateBookId(value.key);
+    return;
+  }
+  setSelectedBook(newVal);
+};
 ```
 
 And on saving the note, first we check if a book with bookId exists in the db. If not, we first upload the book cover to cloudinary and then add the url to the book.

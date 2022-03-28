@@ -7,13 +7,11 @@ import { ReactNode } from 'react';
 const name = 'Aman Thakur';
 export const siteTitle = 'Aman Thakur Portfolio';
 
-export default function Layout({
-  children,
-  home,
-}: {
-  children: ReactNode;
-  home?: boolean;
-}) {
+type LayoutPropsType =
+  | { pageTitle: string; children: ReactNode; home: false }
+  | { home: true; children: ReactNode };
+
+export default function Layout(props: LayoutPropsType) {
   return (
     <div>
       <Head>
@@ -27,7 +25,7 @@ export default function Layout({
       </Head>
       <div className={styles.container}>
         <header className={styles.header}>
-          {home ? (
+          {props.home ? (
             <>
               <Image
                 priority
@@ -39,24 +37,17 @@ export default function Layout({
               />
             </>
           ) : (
-            <>
+            <div className={styles.headerBreadcrumbs}>
               <Link href="/">
-                <a className={styles.headerImageLink}>
-                  <Image
-                    priority
-                    src="/images/aman.png"
-                    className={styles.headerImage}
-                    height={108}
-                    width={108}
-                    alt={name}
-                  />
-                </a>
+                <a>Home</a>
               </Link>
-            </>
+              <p>/</p>
+              <p>{props.pageTitle}</p>
+            </div>
           )}
         </header>
-        <main>{children}</main>
-        {!home && (
+        <main>{props.children}</main>
+        {!props.home && (
           <div className={styles.backToHome}>
             <Link href="/">
               <a>← Back to home</a>

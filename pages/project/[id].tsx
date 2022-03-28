@@ -17,16 +17,15 @@ export default function Post({
   projectData: ProjectDateType;
 }) {
   return (
-    <Layout>
+    <Layout home={false} pageTitle={projectData.title}>
       <Head>
         <title>{projectData.title}</title>
       </Head>
       <Script src="/prism.js" />
       <article>
-        <h1>{projectData.title}</h1>
-        <div>
-          <Date dateString={projectData.date} />
-        </div>
+        <h1 style={{ marginBottom: '2rem', marginTop: '0.5rem' }}>
+          {projectData.title}
+        </h1>
         <MDXRemote {...projectData.contentHtml} />
       </article>
     </Layout>

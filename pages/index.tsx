@@ -183,9 +183,9 @@ const Home: NextPage = () => {
           <label htmlFor="name">Name</label>
           <input type="text" id="name" required name="Name" />
           <label htmlFor="email">Email</label>
-          <input type="email" id="email" required name="Name" />
+          <input type="email" id="email" required name="Email" />
           <label htmlFor="message">Message:</label>
-          <textarea id="message" />
+          <textarea id="message" name="Message" />
           <input type="submit" />
         </form>
       </section>

@@ -19,7 +19,7 @@ const projectsDirectory = path.join(process.cwd(), 'projects');
 //     }
 //   }
 // ]
-export function getAllProjetIds() {
+export function getAllProjectIds() {
   const fileNames = fs.readdirSync(projectsDirectory);
 
   return fileNames.map((fileName) => {
@@ -31,7 +31,7 @@ export function getAllProjetIds() {
   });
 }
 
-export async function getPostData(id: string) {
+export async function getProjectData(id: string) {
   const fullPath = path.join(projectsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 

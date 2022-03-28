@@ -1,6 +1,6 @@
 ---
 title: Activity Logger App
-date: 2022-03-14
+date: '2022-03-14'
 ---
 
 There are time tracking apps like Rescue Timer. However the problem with those kinds of apps is that they run in the background. So in the present moment you’d never know that you are wasting your time. It is only when you are reviewing your day that you realize you have wasted your time.

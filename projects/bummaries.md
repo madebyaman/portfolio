@@ -1,6 +1,6 @@
 ---
 title:  Bummaries App
-date: 2022-03-12
+date: '2022-03-12'
 ---
 
 I love reading books and taking notes. But it is hard if you want to share those notes with other people. People like Derek Sivers, Nat Eliason, use their blog to share their book notes. A blog is not an ideal place to share your book notes.

@@ -1,6 +1,6 @@
 ---
 title: WordPress Blocks Plugin
-date: 2021-11-12
+date: '2021-11-12'
 ---
 
 This plugin contains 5 blocks.

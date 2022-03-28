@@ -67,8 +67,8 @@ export const projectsList: Project[] = [
     links: [
       {
         name: 'Read more',
-        url: 'https://hackerjourney.com/posts/bummaries/',
-        externalLink: true,
+        url: 'project/bummaries',
+        externalLink: false,
       },
       {
         name: 'View live',

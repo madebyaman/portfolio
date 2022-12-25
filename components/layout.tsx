@@ -8,7 +8,12 @@ const name = 'Aman Thakur';
 export const siteTitle = 'Aman Thakur Portfolio';
 
 type LayoutPropsType =
-  | { pageTitle: string; children: ReactNode; home: false }
+  | {
+      pageTitle: string;
+      children: ReactNode;
+      home: false;
+      back?: { link: string; name: string };
+    }
   | { home: true; children: ReactNode };
 
 export default function Layout(props: LayoutPropsType) {
@@ -38,10 +43,14 @@ export default function Layout(props: LayoutPropsType) {
             </>
           ) : (
             <div className={styles.headerBreadcrumbs}>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
+              <Link href="/">Home</Link>
               <p>/</p>
+              {props.back && (
+                <>
+                  <Link href={props.back.link}>{props.back.name}</Link>
+                  <p>/</p>
+                </>
+              )}
               <p>{props.pageTitle}</p>
             </div>
           )}
@@ -49,9 +58,7 @@ export default function Layout(props: LayoutPropsType) {
         <main>{props.children}</main>
         {!props.home && (
           <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
+            <Link href="/">← Back to home</Link>
           </div>
         )}
       </div>

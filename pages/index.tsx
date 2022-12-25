@@ -46,15 +46,15 @@ const Home: NextPage = () => {
               📖 Currently reading{' '}
               <Link
                 href="https://www.amazon.com/Stress-Free-Productivity-Personalized-Efficient-Creative/dp/0593191331"
-                passHref
+                target="_blank"
               >
-                <a target="_blank">Stress Free Productivity by Alice Boyes</a>
+                Stress Free Productivity by Alice Boyes
               </Link>
             </p>
             <div className={styles.social}>
               {socialLinks.map((link) => (
-                <Link key={link.name} href={link.url} passHref>
-                  <a target="_blank">{link.icon}</a>
+                <Link key={link.name} target={'_blank'} href={link.url}>
+                  {link.icon}
                 </Link>
               ))}
             </div>
@@ -96,29 +96,31 @@ const Home: NextPage = () => {
                   <p>{project.description}</p>
                   <div className={styles.projectLinks}>
                     {project.links.map((link) => (
-                      <Link key={link.name} href={link.url} passHref>
-                        <a target={link.externalLink ? '_blank' : '_self'}>
-                          {link.externalLink && (
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              style={{
-                                width: '18px',
-                                height: '18px',
-                              }}
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={2}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                              />
-                            </svg>
-                          )}
-                          {link.name}
-                        </a>
+                      <Link
+                        key={link.name}
+                        href={link.url}
+                        target={link.externalLink ? '_blank' : '_self'}
+                      >
+                        {link.externalLink && (
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            style={{
+                              width: '18px',
+                              height: '18px',
+                            }}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        )}
+                        {link.name}
                       </Link>
                     ))}
                   </div>
@@ -126,9 +128,9 @@ const Home: NextPage = () => {
                 <div className={styles.projectImage}>
                   {project.screenshot && (
                     <Image
-                      src={project.screenshot}
+                      src={'/images' + project.screenshot}
                       width={700}
-                      height={736}
+                      height="450"
                       alt={project.name}
                     />
                   )}
@@ -148,27 +150,25 @@ const Home: NextPage = () => {
       </section>
       <section className={styles.resume}>
         <h2>Resume</h2>
-        <Link href="/resume.pdf" passHref>
-          <a target="_blank">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              style={{
-                width: '19px',
-                height: '19px',
-              }}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-              />
-            </svg>
-            Download resume
-          </a>
+        <Link href="/resume.pdf" target="_blank">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              width: '19px',
+              height: '19px',
+            }}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          Download resume
         </Link>
       </section>
       <section className={styles.contactForm}>

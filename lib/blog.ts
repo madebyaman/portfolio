@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from 'rehype-highlight';
 
-const projectsDirectory = path.join(process.cwd(), 'projects');
+const blogDirectory = path.join(process.cwd(), 'blog');
 
 // Returns an array that looks like this:
 // [
@@ -19,8 +19,8 @@ const projectsDirectory = path.join(process.cwd(), 'projects');
 //     }
 //   }
 // ]
-export function getAllProjectIds() {
-  const fileNames = fs.readdirSync(projectsDirectory);
+export function getAllBlogPostIds() {
+  const fileNames = fs.readdirSync(blogDirectory);
 
   return fileNames.map((fileName) => {
     return {
@@ -31,8 +31,8 @@ export function getAllProjectIds() {
   });
 }
 
-export async function getProjectData(id: string) {
-  const fullPath = path.join(projectsDirectory, `${id}.md`);
+export async function getBlogData(id: string) {
+  const fullPath = path.join(blogDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   const matterResult = matter(fileContents);
@@ -46,4 +46,20 @@ export async function getProjectData(id: string) {
     contentHtml: processedContent,
     ...matterResult.data,
   };
+}
+
+export async function getBlogExcerpt() {
+  const fileNames = fs.readdirSync(blogDirectory);
+
+  return fileNames.map((fileName) => {
+    const fullPath = path.join(blogDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+    const matterResult = matter(fileContents);
+    return {
+      id: fileName.replace(/\.md$/, ''),
+      date: matterResult.data.date,
+      title: matterResult.data.title,
+    };
+  });
 }

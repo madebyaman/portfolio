@@ -1,37 +1,37 @@
 import Head from 'next/head';
 import Layout from '../../components/layout';
-import { getAllProjectIds, getProjectData } from '../../lib/projects';
+import { getAllBlogPostIds, getBlogData } from '../../lib/blog';
 import Script from 'next/script';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 
-type ProjectDateType = {
+type BlogData = {
   title: string;
   date: string;
   contentHtml: MDXRemoteSerializeResult<Record<string, unknown>>;
 };
 
-export default function Post({
-  projectData,
-}: {
-  projectData: ProjectDateType;
-}) {
+export default function Post({ blogData }: { blogData: BlogData }) {
   return (
-    <Layout home={false} pageTitle={projectData.title}>
+    <Layout
+      home={false}
+      pageTitle={blogData.title}
+      back={{ link: '/blog', name: 'Blog' }}
+    >
       <Head>
-        <title>{projectData.title}</title>
+        <title>{blogData.title}</title>
       </Head>
       <Script src="/prism.js" />
       <article>
         <h1 style={{ marginBottom: '2rem', marginTop: '0.5rem' }}>
-          {projectData.title}
+          {blogData.title}
         </h1>
-        <MDXRemote {...projectData.contentHtml} />
+        <MDXRemote {...blogData.contentHtml} />{' '}
       </article>
     </Layout>
   );
 }
 export async function getStaticPaths() {
-  const paths = getAllProjectIds();
+  const paths = getAllBlogPostIds();
   return {
     paths,
     fallback: false,
@@ -39,8 +39,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const projectData = await getProjectData(params.id);
+  const blogData = await getBlogData(params.id);
   return {
-    props: { projectData },
+    props: { blogData: JSON.parse(JSON.stringify(blogData)) },
   };
 }

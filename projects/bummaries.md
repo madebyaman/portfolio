@@ -7,8 +7,6 @@ I love reading books and taking notes. But it is hard if you want to share those
 
 Hence the idea of Bummaries. The app allows people to write their book notes or summaries and share it with other people.
 
-[Check out the loom video to see a quick overview of my app](https://www.loom.com/share/efded017554a4782b07040aa4e5ef925?sharedAppSource=personal_library)
-
 [View live](https://bummaries.app/)
 
 [View on Github](https://github.com/madebyaman/book-notes)

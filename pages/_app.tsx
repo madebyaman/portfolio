@@ -1,8 +1,7 @@
 import '../styles/globals.css';
-import type { AppProps } from 'next/app';
 import '../styles/prism-hopscotch.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: { Component: any; pageProps: any }) {
   return <Component {...pageProps} />;
 }
 

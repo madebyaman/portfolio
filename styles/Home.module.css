@@ -116,6 +116,21 @@
   margin: 0 0 20px;
 }
 
+.projectSkillsList {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 45px;
+  text-align: center;
+  column-gap: 20px;
+}
+
+.projectSkillsList p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
 .project a {
   font-size: 16px;
   padding: 10px 15px;

@@ -39,17 +39,8 @@ const Home = () => {
               developer 💻.
             </p>
             <p>
-              At the same time, I am working on cool projects, including
-              Bummaries, an app to write your book notes.
-            </p>
-            <p>
-              📖 Currently reading{' '}
-              <Link
-                href="https://www.amazon.com/Stress-Free-Productivity-Personalized-Efficient-Creative/dp/0593191331"
-                target="_blank"
-              >
-                Stress Free Productivity by Alice Boyes
-              </Link>
+              📽️ Currently, I am working on cool projects, including Bummaries,
+              an app to write your book notes.
             </p>
             <div className={styles.social}>
               {socialLinks.map((link) => (
@@ -124,6 +115,18 @@ const Home = () => {
                       </Link>
                     ))}
                   </div>
+                  {project.skills && (
+                    <div className={styles.projectSkillsList}>
+                      {project.skills.map((skill) => (
+                        <div key={skill.name} className={styles.projectSkill}>
+                          <div className={styles.projectSkillIcon}>
+                            {skill.icon}
+                          </div>
+                          <p>{skill.name}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
                 <div className={styles.projectImage}>
                   {project.screenshot && (

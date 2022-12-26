@@ -13,6 +13,13 @@ import {
   SiNodedotjs,
   SiVuedotjs,
   SiWordpress,
+  SiChakraui,
+  SiPrisma,
+  SiPostgresql,
+  SiJest,
+  SiCypress,
+  SiSass,
+  SiWebpack,
 } from 'react-icons/si';
 
 export const socialLinks = [
@@ -49,6 +56,10 @@ export type Project = {
   highlighted: boolean;
   backgroundColor: string;
   screenshot?: string;
+  skills?: {
+    name: string;
+    icon: JSX.Element;
+  }[];
   links: {
     name: string;
     url: string;
@@ -66,11 +77,6 @@ export const projectsList: Project[] = [
     screenshot: '/Bummaries.png',
     links: [
       {
-        name: 'Read more',
-        url: 'project/bummaries',
-        externalLink: false,
-      },
-      {
         name: 'View live',
         url: 'https://www.bummaries.app',
         externalLink: true,
@@ -79,6 +85,28 @@ export const projectsList: Project[] = [
         name: 'View on Github',
         url: 'https://github.com/madebyaman/book-notes',
         externalLink: true,
+      },
+    ],
+    skills: [
+      {
+        name: 'Typescript',
+        icon: <SiTypescript />,
+      },
+      {
+        name: 'NextJS',
+        icon: <SiNextdotjs />,
+      },
+      {
+        name: 'Firebase',
+        icon: <SiFirebase />,
+      },
+      {
+        name: 'Chakra UI',
+        icon: <SiChakraui />,
+      },
+      {
+        name: 'Redux',
+        icon: <SiRedux />,
       },
     ],
   },
@@ -91,11 +119,6 @@ export const projectsList: Project[] = [
     screenshot: '/activity-logger.png',
     links: [
       {
-        name: 'Read more',
-        url: '/project/activity-logger/',
-        externalLink: false,
-      },
-      {
         name: 'View live',
         url: 'https://activity-logger.vercel.app/',
         externalLink: true,
@@ -104,6 +127,70 @@ export const projectsList: Project[] = [
         name: 'View on Github',
         url: 'https://github.com/madebyaman/activity-logger',
         externalLink: true,
+      },
+    ],
+    skills: [
+      {
+        name: 'NextJS',
+        icon: <SiNextdotjs />,
+      },
+      {
+        name: 'Typescript',
+        icon: <SiTypescript />,
+      },
+      {
+        name: 'Prisma',
+        icon: <SiPrisma />,
+      },
+      {
+        name: 'PostgreSQL',
+        icon: <SiPostgresql />,
+      },
+      {
+        name: 'Jest',
+        icon: <SiJest />,
+      },
+      {
+        name: 'Cypress',
+        icon: <SiCypress />,
+      },
+      {
+        name: 'Tailwind',
+        icon: <SiTailwindcss />,
+      },
+    ],
+  },
+  {
+    name: 'Note taking app',
+    description:
+      'Fully function note taking app built with vanilla JS and Typescript with no framework.',
+    highlighted: true,
+    backgroundColor: 'HSL(11, 48%, 33%)',
+    screenshot: '/easy-notes.png',
+    links: [
+      {
+        name: 'View live',
+        url: 'https://note-taking-app-jet.vercel.app/',
+        externalLink: true,
+      },
+      {
+        name: 'View on Github',
+        url: 'https://github.com/madebyaman/note-taking-app',
+        externalLink: true,
+      },
+    ],
+    skills: [
+      {
+        name: 'Typescript',
+        icon: <SiTypescript />,
+      },
+      {
+        name: 'SCSS',
+        icon: <SiSass />,
+      },
+      {
+        name: 'Parcel',
+        icon: <SiWebpack />,
       },
     ],
   },

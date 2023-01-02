@@ -86,6 +86,11 @@ export const projectsList: Project[] = [
         url: 'https://github.com/madebyaman/book-notes',
         externalLink: true,
       },
+      {
+        name: 'Demo video on loom',
+        url: 'https://www.loom.com/share/8773464442644aabb53ea64300be5d27',
+        externalLink: true,
+      },
     ],
     skills: [
       {
@@ -126,6 +131,11 @@ export const projectsList: Project[] = [
       {
         name: 'View on Github',
         url: 'https://github.com/madebyaman/activity-logger',
+        externalLink: true,
+      },
+      {
+        name: 'Demo video on loom',
+        url: 'https://www.loom.com/share/a95eec8cb13e4dcab1936973b9a09cd2',
         externalLink: true,
       },
     ],
@@ -176,6 +186,11 @@ export const projectsList: Project[] = [
       {
         name: 'View on Github',
         url: 'https://github.com/madebyaman/note-taking-app',
+        externalLink: true,
+      },
+      {
+        name: 'Demo video on loom',
+        url: 'https://www.loom.com/share/2cf92c4ca30f47bc83ae52c4096ea31f',
         externalLink: true,
       },
     ],

@@ -22,15 +22,9 @@ const projectsDirectory = path.join(process.cwd(), 'projects');
 export function getAllProjectIds() {
   const fileNames = fs.readdirSync(projectsDirectory);
 
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
-}
+  return fileNames.map((fileName) => fileName.replace(/\.md$/, ''))
 
+}
 export async function getProjectData(id: string) {
   const fullPath = path.join(projectsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');

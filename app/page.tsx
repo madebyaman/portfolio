@@ -1,37 +1,19 @@
-import NextPage from 'next';
-import Head from 'next/head';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import {
   Project,
   projectsList,
   skillsList,
   socialLinks,
 } from '../components/data';
-import Layout from '../components/layout';
-import styles from '../styles/Home.module.css';
 
 const Home = () => {
-  const [showAllProjects, setShowAllProjects] = useState(false);
-
-  const filterProjects = (project: Project) => {
-    if (showAllProjects) {
-      return project;
-    } else {
-      return project.highlighted && project;
-    }
-  };
-
   return (
-    <Layout home>
-      <Head>
-        <title>Aman Thakur Portfolio</title>
-      </Head>
-
-      <section className={styles.hero}>
+    <>
+      <section className="">
         <div>
-          <h1>Hi, I am Aman</h1>
+          <h1 className="mt-0 mb-6">Hi, I am Aman</h1>
           <div>
             <p>
               A web developer living in India 🇮🇳, a dog lover 🐶, and a cricket
@@ -42,9 +24,14 @@ const Home = () => {
               📽️ Currently, I am working on cool projects, including Bummaries,
               an app to write your book notes.
             </p>
-            <div className={styles.social}>
+            <div className="flex gap-5 items-center mt-8">
               {socialLinks.map((link) => (
-                <Link key={link.name} target={'_blank'} href={link.url}>
+                <Link
+                  key={link.name}
+                  target={'_blank'}
+                  href={link.url}
+                  className="border-0 text-lg"
+                >
                   {link.icon}
                 </Link>
               ))}
@@ -52,40 +39,39 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section className={styles.skills}>
+      <section className="my-24">
         <h2>Technical Skill Set</h2>
-        <div className={styles.skillsList}>
+        <div className="grid mt-8 grid-cols-4 justify-center gap-x-10 gap-y-3">
           {skillsList.map((skill) => (
-            <div key={skill.name} className={styles.skill}>
-              <div className={styles.skillIcon}>{skill.icon}</div>
+            <div key={skill.name} className="">
+              <div className="text-xl">{skill.icon}</div>
               <p>{skill.name}</p>
             </div>
           ))}
         </div>
       </section>
-      <section className={styles.projects}>
-        <div className={styles.heading}>
+      <section className="my-20">
+        <div className="">
           <h2>Projects</h2>
         </div>
-        <div className={styles.projectList}>
-          {projectsList.filter(filterProjects).map((project) => {
+        <div className="grid gap-5 grid-cols-1">
+          {projectsList.map((project) => {
             const { highlighted, backgroundColor } = project;
             return (
               <div
                 key={project.name}
-                className={
-                  highlighted
-                    ? styles.project + ` ${styles.highlightedProject}`
-                    : styles.project
-                }
+                className={clsx(
+                  highlighted && ' col-span-2 border-0 text-white',
+                  'pt-8 pl-0 pb-6 pr-6 rounded'
+                )}
                 style={{
                   backgroundColor: highlighted ? backgroundColor : 'white',
                 }}
               >
-                <div className={styles.projectText}>
+                <div className="py-16 px-4">
                   <h3>{project.name}</h3>
                   <p>{project.description}</p>
-                  <div className={styles.projectLinks}>
+                  <div className="flex gap-2 rounded flex-col items-start">
                     {project.links.map((link) => (
                       <Link
                         key={link.name}
@@ -116,19 +102,21 @@ const Home = () => {
                     ))}
                   </div>
                   {project.skills && (
-                    <div className={styles.projectSkillsList}>
+                    <div
+                      className={
+                        'flex flex-row gap-3 flex-wrap mt-10 text-center gap-x-6'
+                      }
+                    >
                       {project.skills.map((skill) => (
-                        <div key={skill.name} className={styles.projectSkill}>
-                          <div className={styles.projectSkillIcon}>
-                            {skill.icon}
-                          </div>
+                        <div key={skill.name} className="">
+                          <div className="">{skill.icon}</div>
                           <p>{skill.name}</p>
                         </div>
                       ))}
                     </div>
                   )}
                 </div>
-                <div className={styles.projectImage}>
+                <div className={'transition-all'}>
                   {project.screenshot && (
                     <Image
                       src={'/images' + project.screenshot}
@@ -142,16 +130,16 @@ const Home = () => {
             );
           })}
         </div>
-        {!showAllProjects && (
+        {/* {!showAllProjects && (
           <a
             onClick={() => setShowAllProjects((prev) => !prev)}
             className={styles.allProjectsLink}
           >
             Show more projects
           </a>
-        )}
+        )} */}
       </section>
-      <section className={styles.resume}>
+      <section className={'my-20 flex items-center gap-8'}>
         <h2>Resume</h2>
         <Link href="/resume.pdf" target="_blank">
           <svg
@@ -174,7 +162,7 @@ const Home = () => {
           Download resume
         </Link>
       </section>
-      <section className={styles.contactForm}>
+      <section className={'my-12'}>
         <h2>Contact</h2>
         <form
           name="contact"
@@ -192,7 +180,7 @@ const Home = () => {
           <input type="submit" />
         </form>
       </section>
-    </Layout>
+    </>
   );
 };
 

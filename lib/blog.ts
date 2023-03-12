@@ -21,14 +21,7 @@ const blogDirectory = path.join(process.cwd(), 'blog');
 // ]
 export function getAllBlogPostIds() {
   const fileNames = fs.readdirSync(blogDirectory);
-
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
+  return fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
 }
 
 export async function getBlogData(id: string) {

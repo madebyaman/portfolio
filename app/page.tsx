@@ -4,21 +4,9 @@ import { skillsList } from 'components/data';
 import Navigation from 'components/nav';
 import profileImg from 'public/images/aman.png';
 import ProjectSection from './project-section';
-import { ReactNode } from 'react';
 import clsx from 'clsx';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
-
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-}
-
-export function Container({ children, className, ...props }: ContainerProps) {
-  return (
-    <div className={clsx('max-w-2xl md:max-w-4xl mx-auto', className)}>
-      {children}
-    </div>
-  );
-}
+import { Container } from 'components/container';
 
 const Home = () => {
   return (

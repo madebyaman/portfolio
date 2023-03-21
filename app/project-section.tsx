@@ -5,7 +5,7 @@ import { projectsList } from 'components/data';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
-import { Container } from './page';
+import { Container } from 'components/container';
 
 export default function ProjectSection() {
   const [showMore, setShowMore] = useState(false);

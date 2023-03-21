@@ -3,22 +3,11 @@ import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeHighlight from 'rehype-highlight';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 const blogDirectory = path.join(process.cwd(), 'blog');
 
-// Returns an array that looks like this:
-// [
-//   {
-//     params: {
-//       id: 'ssg-ssr'
-//     }
-//   },
-//   {
-//     params: {
-//       id: 'pre-rendering'
-//     }
-//   }
-// ]
 export function getAllBlogPostIds() {
   const fileNames = fs.readdirSync(blogDirectory);
   return fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
@@ -30,13 +19,14 @@ export async function getBlogData(id: string) {
 
   const matterResult = matter(fileContents);
 
-  const processedContent = await serialize(matterResult.content, {
-    mdxOptions: { rehypePlugins: [rehypeHighlight] },
-  });
+  const processedContent = await remark()
+    .use(html)
+    .process(matterResult.content);
+  const contentHtml = processedContent.toString();
 
   return {
     id,
-    contentHtml: processedContent,
+    contentHtml,
     ...matterResult.data,
   };
 }
@@ -51,7 +41,7 @@ export async function getBlogExcerpt() {
     const matterResult = matter(fileContents);
     return {
       id: fileName.replace(/\.md$/, ''),
-      date: matterResult.data.date,
+      date: matterResult.data.date.toString(),
       title: matterResult.data.title,
     };
   });

@@ -2,14 +2,20 @@
 
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import {
+  Bars3Icon,
+  BookOpenIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { SiGithub, SiLinkedin, SiTwitter, SiYoutube } from 'react-icons/si';
 
 const navigation = [
-  { name: 'Blog', href: '#' },
-  { name: 'YouTube', href: '#' },
-  { name: 'Projects', href: '#' },
-  { name: 'Contact', href: '#' },
+  { name: 'Blog', href: '/blog', icon: BookOpenIcon },
+  { name: 'YouTube', href: '#', icon: SiYoutube },
+  { name: 'GitHub', href: '#', icon: SiGithub },
+  { name: 'Twitter', href: '#', icon: SiTwitter },
+  { name: 'LinkedIn', href: '#', icon: SiLinkedin },
 ];
 
 interface NavigationProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -35,13 +41,14 @@ export default function Navigation(props: NavigationProps) {
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-6">
           {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-gray-600 hover:text-gray-800"
+              className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 hover:bg-slate-200 rounded-md px-3 py-2"
             >
+              {/* <item.icon className="h-4 w-4 opacity-70" aria-hidden="true" /> */}
               {item.name}
             </Link>
           ))}
@@ -56,9 +63,12 @@ export default function Navigation(props: NavigationProps) {
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 lg:px-8 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
-              <span className="">Aman Thakur</span>
-            </a>
+            <Link
+              href="/"
+              className="font-bold text-sm uppercase tracking-wider"
+            >
+              Aman Thakur
+            </Link>
             <button
               type="button"
               className="rounded-md text-gray-700 p-2"
@@ -75,8 +85,12 @@ export default function Navigation(props: NavigationProps) {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className="flex items-center gap-2 text-sm font-medium text-slate-700 rounded-lg py-2 px-3 hover:bg-slate-100"
                   >
+                    <item.icon
+                      className="h-4 w-4 opacity-70"
+                      aria-hidden="true"
+                    />
                     {item.name}
                   </Link>
                 ))}

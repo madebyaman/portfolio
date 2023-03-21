@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import { serialize } from 'next-mdx-remote/serialize';
-import rehypeHighlight from 'rehype-highlight';
 import { remark } from 'remark';
 import html from 'remark-html';
 

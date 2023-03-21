@@ -3,7 +3,11 @@ import Navigation from 'components/nav';
 import { getAllBlogPostIds, getBlogData } from 'lib/blog';
 
 export default async function Post({ params }: { params: { id: string } }) {
-  const blog = await getBlogData(params.id);
+  const blog: {
+    id: string;
+    title?: string;
+    contentHtml: string;
+  } = await getBlogData(params.id);
 
   return (
     <div>

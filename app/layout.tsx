@@ -1,7 +1,12 @@
 import '../styles/globals.css';
-import Image from 'next/image';
-import Link from 'next/link';
 import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +55,7 @@ export const metadata: Metadata = {
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="max-w-2xl px-4 my-20">
+    <html lang="en" className={inter.className}>
       <body className="antialiased">
         {/* <header>
         {props.home ? (

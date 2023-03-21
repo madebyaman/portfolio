@@ -2,100 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --color-link: #f9415d;
-  --color-link-hover: #c5334c;
-}
+@layer components {
+  .btn {
+    @apply px-6 py-3 inline-flex items-center gap-2 font-semibold;
+  }
 
-html,
-body {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+  .primary {
+    @apply bg-slate-700 text-white hover:bg-slate-900;
+  }
 
-body main,
-body article {
-  margin: 0;
-  padding: 0;
-  max-width: fit-content;
-}
+  .secondary {
+    @apply text-slate-800 bg-slate-100 hover:bg-white border border-transparent hover:border-slate-100;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: #252626;
-  line-height: 1.28;
-  font-weight: 600;
-}
+  .link {
+    @apply underline underline-offset-4 hover:decoration-slate-900 decoration-slate-300 text-slate-900;
 
-h1 {
-  font-size: 40px;
-}
-
-h2 {
-  font-size: 34px;
-}
-
-h3 {
-  font-size: 30px;
-}
-
-h4 {
-  font-size: 26px;
-}
-
-p,
-li,
-a {
-  font-size: 18px;
-  color: #454646;
-  line-height: 1.6;
-}
-
-a,
-a:visited {
-  color: var(--color-link);
-  font-weight: 500;
-  border-bottom: 2px solid #dfe3e5;
-  transition: all 200ms ease-out;
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--color-link-hover);
-}
-
-form {
-  margin: unset;
-  max-width: 70%;
-}
-
-form input,
-form textarea {
-  background-color: #f2f6f9 !important;
-  border: none !important;
-  border-radius: none;
-  padding: 1.5rem !important;
-}
-
-pre > code {
-  border: none;
-  padding: 2rem 1.5em;
-  margin: 1rem 0;
-  border-radius: 5px;
-}
-
-pre {
-  border: none;
-  background: none;
-}
-
-p > code {
-  background-color: #eee;
-  padding: 5px 8px;
-  font-size: 16px;
-  border-radius: 5px;
+  }
 }

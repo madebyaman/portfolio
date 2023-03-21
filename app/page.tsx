@@ -1,147 +1,91 @@
-import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Project,
-  projectsList,
-  skillsList,
-  socialLinks,
-} from '../components/data';
+import { skillsList } from 'components/data';
+import Navigation from 'components/nav';
+import profileImg from 'public/images/aman.png';
+import ProjectSection from './project-section';
+import { ReactNode } from 'react';
+import clsx from 'clsx';
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
+
+interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+}
+
+export function Container({ children, className, ...props }: ContainerProps) {
+  return (
+    <div className={clsx('max-w-2xl md:max-w-4xl mx-auto', className)}>
+      {children}
+    </div>
+  );
+}
 
 const Home = () => {
   return (
     <>
-      <section className="">
-        <div>
-          <h1 className="mt-0 mb-6">Hi, I am Aman</h1>
-          <div>
-            <p>
-              A web developer living in India 🇮🇳, a dog lover 🐶, and a cricket
-              enthusiast 🏏. I am currently looking for job as a frontend
-              developer 💻.
-            </p>
-            <p>
-              📽️ Currently, I am working on cool projects, including Bummaries,
-              an app to write your book notes.
-            </p>
-            <div className="flex gap-5 items-center mt-8">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  target={'_blank'}
-                  href={link.url}
-                  className="border-0 text-lg"
-                >
-                  {link.icon}
-                </Link>
-              ))}
+      <section className="bg-slate-100 m-2 pt-4 px-4 pb-24">
+        <Container>
+          <Navigation className="my-4" />
+          <div className="mt-20 flex flex-col sm:flex-row gap-4 sm:items-start">
+            <Image
+              src={profileImg}
+              alt="Aman Thakur"
+              className="rounded-full"
+              width={150}
+              height={150}
+            />
+            <div>
+              <h1 className="mt-6 mb-4 text-3xl lg:text-4xl font-bold">
+                Hi, I am Aman
+              </h1>
+              <div className="flex gap-4 flex-col text-lg">
+                <p>
+                  A web developer living in India 🇮🇳, a dog lover 🐶, and a
+                  cricket enthusiast 🏏. I am currently looking for job as a
+                  frontend developer 💻.
+                </p>
+                <p>
+                  📽️ Currently, I am working on cool projects, including
+                  Bummaries, an app to write your book notes.
+                </p>
+              </div>
+              <div className="flex gap-5 items-center mt-8">
+                <a href="/#projects" className="btn primary">
+                  See Projects
+                </a>
+                <a href="/#contact" className="btn secondary bg-slate-200">
+                  View Contact
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
-      <section className="my-24">
-        <h2>Technical Skill Set</h2>
-        <div className="grid mt-8 grid-cols-4 justify-center gap-x-10 gap-y-3">
+      <Container className="py-24 px-6">
+        <h2 className="mb-12 text-2xl lg:text-3xl font-bold">
+          Technical Skills
+        </h2>
+        <div className="grid grid-cols-3 sm:grid-cols-4 justify-center gap-x-20 gap-y-16">
           {skillsList.map((skill) => (
-            <div key={skill.name} className="">
-              <div className="text-xl">{skill.icon}</div>
+            <div key={skill.name} className="flex flex-col gap-2 items-center">
+              <div className="text-xl rounded-full bg-slate-100 p-4 inline-block text-gray-700">
+                {skill.icon}
+              </div>
               <p>{skill.name}</p>
             </div>
           ))}
         </div>
-      </section>
-      <section className="my-20">
-        <div className="">
-          <h2>Projects</h2>
-        </div>
-        <div className="grid gap-5 grid-cols-1">
-          {projectsList.map((project) => {
-            const { highlighted, backgroundColor } = project;
-            return (
-              <div
-                key={project.name}
-                className={clsx(
-                  highlighted && ' col-span-2 border-0 text-white',
-                  'pt-8 pl-0 pb-6 pr-6 rounded'
-                )}
-                style={{
-                  backgroundColor: highlighted ? backgroundColor : 'white',
-                }}
-              >
-                <div className="py-16 px-4">
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <div className="flex gap-2 rounded flex-col items-start">
-                    {project.links.map((link) => (
-                      <Link
-                        key={link.name}
-                        href={link.url}
-                        target={link.externalLink ? '_blank' : '_self'}
-                      >
-                        {link.externalLink && (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            style={{
-                              width: '18px',
-                              height: '18px',
-                            }}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                            />
-                          </svg>
-                        )}
-                        {link.name}
-                      </Link>
-                    ))}
-                  </div>
-                  {project.skills && (
-                    <div
-                      className={
-                        'flex flex-row gap-3 flex-wrap mt-10 text-center gap-x-6'
-                      }
-                    >
-                      {project.skills.map((skill) => (
-                        <div key={skill.name} className="">
-                          <div className="">{skill.icon}</div>
-                          <p>{skill.name}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-                <div className={'transition-all'}>
-                  {project.screenshot && (
-                    <Image
-                      src={'/images' + project.screenshot}
-                      width={700}
-                      height="450"
-                      alt={project.name}
-                    />
-                  )}
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        {/* {!showAllProjects && (
-          <a
-            onClick={() => setShowAllProjects((prev) => !prev)}
-            className={styles.allProjectsLink}
-          >
-            Show more projects
-          </a>
-        )} */}
-      </section>
-      <section className={'my-20 flex items-center gap-8'}>
-        <h2>Resume</h2>
-        <Link href="/resume.pdf" target="_blank">
+      </Container>
+      <ProjectSection />
+      <Container className="py-24 px-4">
+        <h2 className="mb-4 text-2xl lg:text-3xl font-bold" id="contact">
+          Contact Information
+        </h2>
+        <Link
+          href="/resume.pdf"
+          className="px-6 py-3 inline-flex flex-row gap-1 items-center text-slate-800 bg-slate-100 hover:bg-white border border-transparent hover:border-slate-100 font-semibold"
+          target="_blank"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             style={{
@@ -161,27 +105,76 @@ const Home = () => {
           </svg>
           Download resume
         </Link>
-      </section>
-      <section className={'my-12'}>
-        <h2>Contact</h2>
         <form
+          className="mt-8"
           name="contact"
           action="/success"
           method="POST"
           data-netlify="true"
         >
           <input type="hidden" name="form-name" value="contact" />
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" required name="Name" />
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" required name="Email" />
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="Message" />
-          <input type="submit" />
+          <InputWithLabel id="name" label="Name" required />
+          <InputWithLabel
+            className="mt-4"
+            id="email"
+            label="Email"
+            type="email"
+            required
+          />
+          <div className="flex flex-col gap-1 mt-4">
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-slate-700"
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              required
+              rows={4}
+              className={clsx(
+                'px-4 py-3 focus:ring-slate-500 focus:border-slate-500 block sm:text-sm border border-gray-300 shadow-sm rounded w-full'
+              )}
+            />
+          </div>
+          <button type="submit" className="mt-4 btn primary">
+            <PaperAirplaneIcon className="w-5 h-5 inline-block" />
+            Send Message
+          </button>
         </form>
-      </section>
+      </Container>
     </>
   );
 };
+
+interface InputWithLabelProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  id: string;
+  label: string;
+}
+
+function InputWithLabel({
+  id,
+  label,
+  className,
+  ...props
+}: InputWithLabelProps) {
+  return (
+    <div className={clsx('flex flex-col gap-1', className)}>
+      <label htmlFor={id} className="block text-sm font-medium text-slate-700">
+        {label}
+      </label>
+      <input
+        name={id}
+        id={id}
+        className={clsx(
+          'px-4 py-3 focus:ring-slate-500 focus:border-slate-500 block sm:text-sm border border-gray-300 shadow-sm rounded w-full'
+        )}
+        {...props}
+      />
+    </div>
+  );
+}
 
 export default Home;

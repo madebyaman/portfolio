@@ -22,19 +22,6 @@ import {
   SiWebpack,
 } from 'react-icons/si';
 
-export const socialLinks = [
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/imamanthakur',
-    icon: <SiTwitter />,
-  },
-  {
-    name: 'Github',
-    url: 'https://github.com/madebyaman',
-    icon: <SiGithub />,
-  },
-];
-
 export const skillsList = [
   { name: 'Javascript', icon: <SiJavascript /> },
   { name: 'Typescript', icon: <SiTypescript /> },

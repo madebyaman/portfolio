@@ -47,7 +47,7 @@ export default function ProjectSection() {
                             highlighted
                               ? 'bg-opacity-10 text-white hover:bg-opacity-100 hover:text-slate-800'
                               : 'bg-opacity-100 text-slate-800 border border-transparent hover:bg-white hover:border-slate-100',
-                            'bg-slate-100 px-3 py-2 font-medium flex flex-row items-center gap-1'
+                            'bg-slate-100 px-3 py-2 font-medium flex flex-row items-center gap-1 shadow'
                           )}
                         >
                           {link.externalLink && (

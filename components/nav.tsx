@@ -8,14 +8,13 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import { SiGithub, SiLinkedin, SiTwitter, SiYoutube } from 'react-icons/si';
+import profileImg from 'public/images/aman.png';
+import Image from 'next/image';
 
 const navigation = [
   { name: 'Blog', href: '/blog', icon: BookOpenIcon },
-  { name: 'YouTube', href: '#', icon: SiYoutube },
-  { name: 'GitHub', href: '#', icon: SiGithub },
-  { name: 'Twitter', href: '#', icon: SiTwitter },
-  { name: 'LinkedIn', href: '#', icon: SiLinkedin },
+  { name: 'Projects', href: '/projects', icon: BookOpenIcon },
+  { name: 'About', href: '/about', icon: BookOpenIcon },
 ];
 
 interface NavigationProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -27,8 +26,17 @@ export default function Navigation(props: NavigationProps) {
     <div {...props}>
       <nav className="flex items-center justify-between" aria-label="Global">
         <div className="flex lg:flex-1">
-          <Link href="/" className="font-bold uppercase tracking-wider">
-            Aman Thakur
+          <Link
+            href="/"
+            className="rounded-full hover:opacity-50 focus:ring-2 focus:ring-slate-700"
+          >
+            <Image
+              src={profileImg}
+              alt="Aman Thakur"
+              className="rounded-full"
+              width={40}
+              height={40}
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">

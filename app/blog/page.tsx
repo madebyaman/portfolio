@@ -12,7 +12,10 @@ export default async function BlogPostIndex() {
         <Container>
           <Navigation className="my-4" />
           <div className="text-center">
-            <h1 className="mt-20">All blog posts</h1>
+            <h1 className="mt-20">
+              My articles on JavaScript, React and all the other jazz 🎷 around
+              frontend development
+            </h1>
           </div>
         </Container>
       </section>

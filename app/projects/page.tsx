@@ -2,6 +2,8 @@ import Image from 'next/image';
 import { Container } from 'components/container';
 import Navigation from 'components/nav';
 import { projectsList } from 'components/data';
+import Link from 'next/link';
+import { LinkIcon } from '@heroicons/react/24/outline';
 
 export default function ProjectsPage() {
   return (
@@ -19,7 +21,7 @@ export default function ProjectsPage() {
       </section>
       <section className="px-4 py-24">
         <Container className="flex flex-col gap-6">
-          <div className="prose">
+          <div className="prose lg:prose-lg mx-auto mb-6">
             <p>
               Welcome to my project page! This is where I show off all the cool
               stuff I&apos;ve made while on my journey as a frontend developer.
@@ -29,20 +31,41 @@ export default function ProjectsPage() {
               mildly entertained)
             </p>
           </div>
-          {projectsList
-            .filter((project) => project.screenshot)
-            .map((project) => (
-              <div key={project.name} className="flex flex-col gap-4">
-                {project.screenshot && (
-                  <Image
-                    src={project.screenshot}
-                    alt={project.name}
-                    width={600}
-                    height={400}
-                  />
-                )}
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
+            {projectsList
+              .filter((project) => project.screenshot)
+              .map((project) => (
+                <div
+                  key={project.name}
+                  className="flex flex-col gap-4 border border-slate-100 rounded p-4"
+                >
+                  <div className="rounded-full p-2 inline-block">
+                    {project.screenshot && project.icon ? (
+                      <span>{project.icon}</span>
+                    ) : (
+                      <Image
+                        src={project.links[0].url + '/favicon.ico'}
+                        className="inline-block"
+                        alt={project.name}
+                        width={20}
+                        height={20}
+                      />
+                    )}
+                  </div>
+                  <p>{project.description}</p>
+                  {project.links.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.url}
+                      className="text-slate-500 hover:text-cyan-600 inline-flex gap-2 items-center font-medium text-sm"
+                    >
+                      <LinkIcon className="h-5 w-5" />
+                      {link.name}
+                    </Link>
+                  ))}
+                </div>
+              ))}
+          </div>
         </Container>
       </section>
     </>

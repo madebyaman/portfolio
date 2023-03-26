@@ -14,11 +14,11 @@
 
 @layer components {
   .btn {
-    @apply px-6 py-3 inline-flex items-center gap-2 font-semibold;
+    @apply px-6 py-3 rounded inline-flex items-center gap-2 font-semibold;
   }
 
   .primary {
-    @apply bg-slate-700 text-white hover:bg-slate-900;
+    @apply bg-cyan-700 text-white hover:bg-cyan-500;
   }
 
   .secondary {
@@ -26,7 +26,7 @@
   }
 
   .link {
-    @apply underline underline-offset-4 hover:decoration-slate-900 decoration-slate-300 text-slate-900;
+    @apply underline underline-offset-4 hover:decoration-cyan-700 decoration-slate-100 text-cyan-700;
 
   }
 }

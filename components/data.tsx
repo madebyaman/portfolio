@@ -1,6 +1,4 @@
 import {
-  SiTwitter,
-  SiGithub,
   SiJavascript,
   SiTypescript,
   SiReact,
@@ -43,6 +41,7 @@ export type Project = {
   highlighted: boolean;
   backgroundColor: string;
   screenshot?: string;
+  icon?: string;
   skills?: {
     name: string;
     icon: JSX.Element;
@@ -105,7 +104,7 @@ export const projectsList: Project[] = [
   {
     name: 'Activity Logger App ',
     description:
-      'I often found myself wasting time. So I built this app to track my day easily.',
+      'Track your daily activities super easy. Built with NextJS, Typescript, Prisma.',
     highlighted: true,
     backgroundColor: '#2C7A7B',
     screenshot: '/activity-logger.png',
@@ -164,6 +163,7 @@ export const projectsList: Project[] = [
     highlighted: true,
     backgroundColor: 'HSL(11, 48%, 33%)',
     screenshot: '/easy-notes.png',
+    icon: '👻',
     links: [
       {
         name: 'View live',

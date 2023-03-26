@@ -8,7 +8,6 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import profileImg from 'public/images/aman.png';
 import Image from 'next/image';
 
 const navigation = [
@@ -31,7 +30,8 @@ export default function Navigation(props: NavigationProps) {
             className="rounded-full hover:opacity-50 focus:ring-2 focus:ring-slate-700"
           >
             <Image
-              src={profileImg}
+              // src={profileImg}
+              src="https://res.cloudinary.com/dksughwo7/image/upload/c_fill,g_face,h_100,w_100/v1679823554/hacker-journey/photo.jpg"
               alt="Aman Thakur"
               className="rounded-full"
               width={40}

@@ -69,11 +69,7 @@ const Home = () => {
         <h2 className="mb-4 text-2xl lg:text-3xl font-bold" id="contact">
           Contact Information
         </h2>
-        <Link
-          href="/resume.pdf"
-          className="px-6 py-3 inline-flex flex-row gap-1 items-center text-slate-800 bg-slate-100 hover:bg-white border border-transparent hover:border-slate-100 font-semibold"
-          target="_blank"
-        >
+        <Link href="/resume.pdf" className="btn secondary" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             style={{

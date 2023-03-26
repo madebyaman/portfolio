@@ -5,15 +5,18 @@ import { Dialog } from '@headlessui/react';
 import {
   Bars3Icon,
   BookOpenIcon,
+  DocumentTextIcon,
+  FolderIcon,
+  UserIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'Blog', href: '/blog', icon: BookOpenIcon },
-  { name: 'Projects', href: '/projects', icon: BookOpenIcon },
-  { name: 'About', href: '/about', icon: BookOpenIcon },
+  { name: 'Blog', href: '/blog', icon: DocumentTextIcon },
+  { name: 'Projects', href: '/projects', icon: FolderIcon },
+  { name: 'About', href: '/about', icon: UserIcon },
 ];
 
 interface NavigationProps extends React.HTMLAttributes<HTMLDivElement> {}

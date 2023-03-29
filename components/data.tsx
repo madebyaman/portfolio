@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { StaticImageData } from 'next/image';
 import {
   SiJavascript,
   SiTypescript,
@@ -22,6 +22,8 @@ import {
 } from 'react-icons/si';
 import ActivityLoggerIcon from './activity-logger.ico';
 import BummariesIcon from './bummaries.ico';
+import NoteTakingIcon from './note-taking-app.png';
+import LoudMouthIcon from './loudmouth.svg';
 
 export const skillsList = [
   { name: 'Javascript', icon: <SiJavascript /> },
@@ -42,9 +44,8 @@ export type Project = {
   name: string;
   description: string;
   highlighted: boolean;
-  backgroundColor: string;
   screenshot?: string;
-  icon?: string | ReactNode;
+  icon?: StaticImageData;
   skills?: {
     name: string;
     icon: JSX.Element;
@@ -62,7 +63,6 @@ export const projectsList: Project[] = [
     description:
       'An app to take, publish, and share book notes easily with other people.',
     highlighted: true,
-    backgroundColor: '#1a202c',
     screenshot: '/Bummaries.png',
     icon: BummariesIcon,
     links: [
@@ -110,7 +110,6 @@ export const projectsList: Project[] = [
     description:
       'Track your daily activities super easy. Built with NextJS, Typescript, Prisma.',
     highlighted: true,
-    backgroundColor: '#2C7A7B',
     screenshot: '/activity-logger.png',
     icon: ActivityLoggerIcon,
     links: [
@@ -166,9 +165,8 @@ export const projectsList: Project[] = [
     description:
       'Fully function note taking app built with vanilla JS and Typescript with no framework.',
     highlighted: true,
-    backgroundColor: 'HSL(11, 48%, 33%)',
     screenshot: '/easy-notes.png',
-    icon: '👻',
+    icon: NoteTakingIcon,
     links: [
       {
         name: 'View live',
@@ -202,10 +200,28 @@ export const projectsList: Project[] = [
     ],
   },
   {
+    name: 'Loud Mouth App',
+    description:
+      'Powerful rating collection tool that allows businesses to send positive reviews on third-party testimonial sites like Capterra, Product Hunt, etc',
+    highlighted: false,
+    icon: LoudMouthIcon,
+    links: [
+      {
+        name: 'View live',
+        url: 'https://beloudmouth.com',
+        externalLink: true,
+      },
+      {
+        name: 'View on Github',
+        url: 'https://github.com/madebyaman/loud-mouth',
+        externalLink: true,
+      },
+    ],
+  },
+  {
     name: 'Shopify Clone',
     description: 'A super simple clone of shopify with authentication.',
     highlighted: false,
-    backgroundColor: '#EBF8FF',
     links: [
       {
         name: 'View live',
@@ -224,13 +240,7 @@ export const projectsList: Project[] = [
     description:
       'A beautiful collection of Gutenberg blocks to help you build WordPress websites with ease.',
     highlighted: false,
-    backgroundColor: '#E6FFFA',
     links: [
-      {
-        name: 'Read more',
-        url: 'project/copywriter-blocks',
-        externalLink: false,
-      },
       {
         name: 'View on Github',
         url: 'https://github.com/madebyaman/copywriter-blocks',
@@ -243,11 +253,10 @@ export const projectsList: Project[] = [
     description:
       'Beside programming, I also love writing. Check out my programming articles.',
     highlighted: false,
-    backgroundColor: '#F0FFF4',
     links: [
       {
         name: 'See my programming articles',
-        url: 'https://hackerjourney.com',
+        url: 'https://amanthakur.me/blog',
         externalLink: true,
       },
     ],

@@ -33,26 +33,24 @@ export default function ProjectsPage() {
           </div>
           <div className="grid sm:grid-cols-2 grid-cols-1 gap-4">
             {projectsList
-              .filter((project) => project.screenshot)
+              .filter((project) => project.icon)
               .map((project) => (
                 <div
                   key={project.name}
                   className="flex flex-col gap-4 border border-slate-100 rounded p-4"
                 >
-                  <div className="rounded-full p-2 inline-block">
-                    {project.screenshot && project.icon ? (
-                      <span>{project.icon}</span>
-                    ) : (
+                  <div className="rounded-full p-2 inline">
+                    {project.icon && (
                       <Image
-                        src={project.links[0].url + '/favicon.ico'}
-                        className="inline-block"
-                        alt={project.name}
-                        width={20}
-                        height={20}
+                        src={project.icon}
+                        className="inline"
+                        alt={`${project.name} icon`}
+                        height={30}
+                        width={30}
                       />
                     )}
                   </div>
-                  <p>{project.description}</p>
+                  <p className="prose">{project.description}</p>
                   {project.links.map((link) => (
                     <Link
                       key={link.name}

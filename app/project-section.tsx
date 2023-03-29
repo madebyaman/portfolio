@@ -20,23 +20,21 @@ export default function ProjectSection() {
           {projectsList
             .filter((project) => (showMore ? project : project.highlighted))
             .map((project) => {
-              const { highlighted, backgroundColor } = project;
+              const { highlighted } = project;
               return (
                 <div
                   key={project.name}
                   className={clsx(
-                    highlighted && ' col-span-2 border-0 text-white',
-                    'pt-8 pl-6 pb-6 pr-0 rounded flex flex-col sm:flex-row gap-4'
+                    highlighted &&
+                      ' bg-cyan-800 text-white col-span-2 border-0',
+                    'pt-8 pl-6 pb-6 pr-0 rounded border border-slate-200 bg-white text-slate-800 flex flex-col sm:flex-row gap-4'
                   )}
-                  style={{
-                    backgroundColor: highlighted ? backgroundColor : 'white',
-                  }}
                 >
                   <div className="py-16 px-4">
                     <h3 className="mb-2 text-xl lg:text-2xl font-bold">
                       {project.name}
                     </h3>
-                    <p>{project.description}</p>
+                    <p className="text-base">{project.description}</p>
                     <div className="mt-4 flex gap-2 rounded flex-col items-start">
                       {project.links.map((link) => (
                         <Link
@@ -45,9 +43,9 @@ export default function ProjectSection() {
                           target={link.externalLink ? '_blank' : '_self'}
                           className={clsx(
                             highlighted
-                              ? 'bg-opacity-10 text-white hover:bg-opacity-100 hover:text-slate-800'
-                              : 'bg-opacity-100 text-slate-800 border border-transparent hover:bg-white hover:border-slate-100',
-                            'bg-slate-100 px-3 py-2 font-medium flex flex-row items-center gap-1 shadow'
+                              ? 'bg-opacity-10 text-white hover:bg-opacity-100 hover:text-slate-800 shadow'
+                              : 'bg-opacity-100 text-slate-800 border border-slate-200 hover:bg-slate-100 shadow-sm hover:border-slate-100',
+                            'bg-white px-3 py-2 font-medium flex flex-row items-center rounded gap-1 text-sm'
                           )}
                         >
                           {link.externalLink && (

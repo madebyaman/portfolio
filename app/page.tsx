@@ -7,6 +7,7 @@ import ProjectSection from './project-section';
 import clsx from 'clsx';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
 import { Container } from 'components/container';
+import ContactForm from './contact-form';
 
 const Home = () => {
   return (
@@ -89,76 +90,10 @@ const Home = () => {
           </svg>
           Download resume
         </Link>
-        <form
-          className="mt-8"
-          name="contact"
-          action="/success"
-          method="POST"
-          data-netlify="true"
-        >
-          <input type="hidden" name="form-name" value="contact" />
-          <InputWithLabel id="name" label="Name" required />
-          <InputWithLabel
-            className="mt-4"
-            id="email"
-            label="Email"
-            type="email"
-            required
-          />
-          <div className="flex flex-col gap-1 mt-4">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-slate-700"
-            >
-              Message
-            </label>
-            <textarea
-              name="message"
-              id="message"
-              required
-              rows={4}
-              className={clsx(
-                'px-4 py-3 focus:ring-slate-500 focus:border-slate-500 block sm:text-sm border border-gray-300 shadow-sm rounded w-full'
-              )}
-            />
-          </div>
-          <button type="submit" className="mt-4 btn primary">
-            <PaperAirplaneIcon className="w-5 h-5 inline-block" />
-            Send Message
-          </button>
-        </form>
+        <ContactForm />
       </Container>
     </>
   );
 };
-
-interface InputWithLabelProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  id: string;
-  label: string;
-}
-
-function InputWithLabel({
-  id,
-  label,
-  className,
-  ...props
-}: InputWithLabelProps) {
-  return (
-    <div className={clsx('flex flex-col gap-1', className)}>
-      <label htmlFor={id} className="block text-sm font-medium text-slate-700">
-        {label}
-      </label>
-      <input
-        name={id}
-        id={id}
-        className={clsx(
-          'px-4 py-3 focus:ring-slate-500 focus:border-slate-500 block sm:text-sm border border-gray-300 shadow-sm rounded w-full'
-        )}
-        {...props}
-      />
-    </div>
-  );
-}
 
 export default Home;

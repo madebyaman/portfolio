@@ -22,9 +22,9 @@ export const metadata: Metadata = {
     siteName: 'Aman Thakur',
     images: [
       {
-        url: 'https://amanthakur.me/api/og?title=${title}',
-        width: 1200,
-        height: 640,
+        url: 'https://amanthakur.me/og.jpg',
+        width: 1920,
+        height: 1080,
       },
     ],
     locale: 'en-US',

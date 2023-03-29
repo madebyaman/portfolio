@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     description: 'Developer, writer, and entrepreneur.',
     url: 'https://amanthakur.me',
     siteName: 'Aman Thakur',
-    // images: [
-    //   {
-    //     url: 'https://leerob.io/og.jpg',
-    //     width: 1920,
-    //     height: 1080,
-    //   },
-    // ],
+    images: [
+      {
+        url: 'https://amanthakur.me/api/og?title=${title}',
+        width: 1200,
+        height: 640,
+      },
+    ],
     locale: 'en-US',
     type: 'website',
   },

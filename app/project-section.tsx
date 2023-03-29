@@ -25,9 +25,10 @@ export default function ProjectSection() {
                 <div
                   key={project.name}
                   className={clsx(
-                    highlighted &&
-                      ' bg-cyan-800 text-white col-span-2 border-0',
-                    'pt-8 pl-6 pb-6 pr-0 rounded border border-slate-200 bg-white text-slate-800 flex flex-col sm:flex-row gap-4'
+                    highlighted
+                      ? 'pt-8 pl-6 pb-6 pr-0 bg-cyan-800 text-white col-span-2 border-0'
+                      : 'p-6 bg-white border border-slate-200 text-slate-800',
+                    'rounded flex flex-col sm:flex-row gap-4'
                   )}
                 >
                   <div className="py-16 px-4">

@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import {
   SiJavascript,
   SiTypescript,
@@ -19,6 +20,8 @@ import {
   SiSass,
   SiWebpack,
 } from 'react-icons/si';
+import ActivityLoggerIcon from './activity-logger.ico';
+import BummariesIcon from './bummaries.ico';
 
 export const skillsList = [
   { name: 'Javascript', icon: <SiJavascript /> },
@@ -41,7 +44,7 @@ export type Project = {
   highlighted: boolean;
   backgroundColor: string;
   screenshot?: string;
-  icon?: string;
+  icon?: string | ReactNode;
   skills?: {
     name: string;
     icon: JSX.Element;
@@ -61,6 +64,7 @@ export const projectsList: Project[] = [
     highlighted: true,
     backgroundColor: '#1a202c',
     screenshot: '/Bummaries.png',
+    icon: BummariesIcon,
     links: [
       {
         name: 'View live',
@@ -108,6 +112,7 @@ export const projectsList: Project[] = [
     highlighted: true,
     backgroundColor: '#2C7A7B',
     screenshot: '/activity-logger.png',
+    icon: ActivityLoggerIcon,
     links: [
       {
         name: 'View live',

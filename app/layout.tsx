@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -57,41 +58,10 @@ function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.className}>
       <body className="antialiased">
-        {/* <header>
-        {props.home ? (
-          <>
-            <Image
-              priority
-              src="/images/aman.png"
-              className={'rounded-full inline-block mb-6'}
-              height={144}
-              width={144}
-              alt={name}
-            />
-          </>
-        ) : (
-          <div className={'border-b-0 flex align-baseline gap-3'}>
-            <Link href="/">Home</Link>
-            <p>/</p>
-            {props.back && (
-              <>
-                <Link href={props.back.link}>{props.back.name}</Link>
-                <p>/</p>
-              </>
-            )}
-            <p>{props.pageTitle}</p>
-          </div>
-        )}
-      </header> */}
         <main>
           {children}
-          {/* <AnalyticsWrapper /> */}
+          <Analytics />
         </main>
-        {/* {!props.home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )} */}
       </body>
     </html>
   );

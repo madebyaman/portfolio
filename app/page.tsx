@@ -30,11 +30,10 @@ const Home = () => {
               <div className="flex gap-4 flex-col text-lg">
                 <p>
                   A web developer living in India 🇮🇳, a dog lover 🐶, and a
-                  cricket enthusiast 🏏. I am currently looking for job as a
-                  frontend developer 💻.
+                  hockey enthusiast 🏑. 
                 </p>
                 <p>
-                  📽️ Currently, I am working on cool projects, including
+                  📽️ Currently, I am working as a frontend developer. I am also working on my cool side projects, including
                   Bummaries, an app to write your book notes.
                 </p>
               </div>

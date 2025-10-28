@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { StaticImageData } from 'next/image';
 import {
   SiJavascript,
@@ -48,7 +49,7 @@ export type Project = {
   icon?: StaticImageData;
   skills?: {
     name: string;
-    icon: JSX.Element;
+    icon: ReactNode;
   }[];
   links: {
     name: string;

@@ -2,12 +2,13 @@ import { Container } from 'components/container';
 import Navigation from 'components/nav';
 import { getAllBlogPostIds, getBlogData } from 'lib/blog';
 
-export default async function Post({ params }: { params: { id: string } }) {
+export default async function Post({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
   const blog: {
     id: string;
     title?: string;
     contentHtml: string;
-  } = await getBlogData(params.id);
+  } = await getBlogData(id);
 
   return (
     <div>

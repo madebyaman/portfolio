@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import { projectsList } from 'components/data';
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState } from 'react';
-import { Container } from 'components/container';
+import clsx from "clsx";
+import { projectsList } from "components/data";
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
+import { Container } from "components/container";
 
 export default function ProjectSection() {
   const [showMore, setShowMore] = useState(false);
@@ -26,9 +26,9 @@ export default function ProjectSection() {
                   key={project.name}
                   className={clsx(
                     highlighted
-                      ? 'pt-8 pl-6 pb-6 pr-0 bg-cyan-800 text-white col-span-2 border-0'
-                      : 'p-6 bg-white border border-slate-200 text-slate-800',
-                    'rounded flex flex-col sm:flex-row gap-4'
+                      ? "pt-8 pl-6 pb-6 pr-0 bg-cyan-800 text-white col-span-2 border-0"
+                      : "p-6 bg-white border border-slate-200 text-slate-800",
+                    "rounded flex flex-col sm:flex-row gap-4",
                   )}
                 >
                   <div className="py-16 px-4">
@@ -41,20 +41,20 @@ export default function ProjectSection() {
                         <Link
                           key={link.name}
                           href={link.url}
-                          target={link.externalLink ? '_blank' : '_self'}
+                          target={link.externalLink ? "_blank" : "_self"}
                           className={clsx(
                             highlighted
-                              ? 'bg-opacity-10 text-white hover:bg-opacity-100 hover:text-slate-800 shadow'
-                              : 'bg-opacity-100 text-slate-800 border border-slate-200 hover:bg-slate-100 shadow-sm hover:border-slate-100',
-                            'bg-white px-3 py-2 font-medium flex flex-row items-center rounded gap-1 text-sm'
+                              ? "bg-white/10 text-white hover:bg-white hover:text-slate-800 shadow"
+                              : "bg-white text-slate-800 border border-slate-200 hover:bg-slate-100 shadow-sm hover:border-slate-100",
+                            "bg-white px-3 py-2 font-medium flex flex-row items-center rounded gap-1 text-sm",
                           )}
                         >
                           {link.externalLink && (
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               style={{
-                                width: '18px',
-                                height: '18px',
+                                width: "18px",
+                                height: "18px",
                               }}
                               fill="none"
                               viewBox="0 0 24 24"
@@ -75,7 +75,7 @@ export default function ProjectSection() {
                     {project.skills && (
                       <div
                         className={
-                          'flex flex-row gap-3 flex-wrap mt-10 text-center gap-x-6 gap-y-3'
+                          "flex flex-row gap-3 flex-wrap mt-10 text-center gap-x-6 gap-y-3"
                         }
                       >
                         {project.skills.map((skill) => (
@@ -95,7 +95,7 @@ export default function ProjectSection() {
                   <div className="">
                     {project.screenshot && (
                       <Image
-                        src={'/images' + project.screenshot}
+                        src={"/images" + project.screenshot}
                         width={700}
                         height="450"
                         alt={project.name}

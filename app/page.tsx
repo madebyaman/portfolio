@@ -1,98 +1,167 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { skillsList } from 'components/data';
-import Navigation from 'components/nav';
-import profileImg from 'public/images/aman.png';
-import ProjectSection from './project-section';
-import clsx from 'clsx';
-import { PaperAirplaneIcon } from '@heroicons/react/24/outline';
-import { Container } from 'components/container';
-import ContactForm from './contact-form';
+import { projectsList } from "components/data";
+import { ReactNode } from "react";
+import { SiGithub, SiX } from "react-icons/si";
+import { FaPlay } from "react-icons/fa";
 
 const Home = () => {
+  const featuredProjects = projectsList.filter((p) => p.highlighted);
+
   return (
-    <>
-      <section className="bg-slate-100 m-2 pt-4 px-4 pb-24">
-        <Container>
-          <Navigation className="my-4" />
-          <div className="mt-20 flex flex-col sm:flex-row gap-4 sm:items-start">
-            <Image
-              src={profileImg}
-              alt="Aman Thakur"
-              className="rounded-full"
-              width={150}
-              height={150}
-            />
-            <div>
-              <h1 className="mt-6 mb-4 text-3xl lg:text-4xl font-bold">
-                Hi, I am Aman
-              </h1>
-              <div className="flex gap-4 flex-col text-lg">
-                <p>
-                  A web developer living in India 🇮🇳, a dog lover 🐶, and a
-                  hockey enthusiast 🏑. 
-                </p>
-                <p>
-                  📽️ Currently, I am working as a frontend developer. I am also working on my cool side projects, including
-                  Bummaries, an app to write your book notes.
-                </p>
-              </div>
-              <div className="flex gap-5 items-center mt-8">
-                <a href="/#projects" className="btn primary">
-                  See Projects
-                </a>
-                <a href="/#contact" className="btn secondary bg-slate-200">
-                  View Contact
-                </a>
-              </div>
-            </div>
-          </div>
-        </Container>
+    <div className="bg-white">
+      {/* Header Section */}
+      <section className="px-4 pt-20 max-w-2xl mx-auto">
+        <h1 className="text-3xl font-semibold mb-4">Aman Thakur</h1>
+
+        <div className="space-y-4 text-gray-700 mb-8">
+          <p>
+            I'm a developer who loves building things that feel solid, fast, and
+            well made. I enjoy starting from scratch and putting all the parts
+            together — backend, frontend, and design.
+          </p>
+          <p>
+            Right now, I'm at Duarte Inc building AI-driven presentation tools
+            and integrating multi-model LLM systems. In the past, I've worked on
+            education and e-commerce platforms — improving app performance,
+            building live tools, and shaping better developer workflows.
+          </p>
+        </div>
+
+        {/* Social Links */}
+        <div className="flex gap-4 items-center">
+          <PrimaryButton href="mailto:amanthakur95@gmail.com">
+            Get in touch
+          </PrimaryButton>
+          <LinkIconButton
+            href="https://x.com/imamanthakur"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiX />
+          </LinkIconButton>
+          <LinkIconButton
+            href="https://github.com/madebyaman"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <SiGithub />
+          </LinkIconButton>
+          <div className="grow rounded-md bg-neutral-100 h-0.5 shrink" />
+        </div>
       </section>
-      <Container className="py-24 px-6">
-        <h2 className="mb-12 text-2xl lg:text-3xl font-bold">
-          Technical Skills
-        </h2>
-        <div className="grid grid-cols-3 sm:grid-cols-4 justify-center gap-x-20 gap-y-16">
-          {skillsList.map((skill) => (
-            <div key={skill.name} className="flex flex-col gap-2 items-center">
-              <div className="text-xl rounded-full bg-slate-100 p-4 inline-block text-gray-700">
-                {skill.icon}
+
+      {/* Projects Section */}
+      <section className="px-4 py-20 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-8">My Favorite Projects</h2>
+
+        <div className="space-y-12">
+          {featuredProjects.map((project) => (
+            <div key={project.name}>
+              <h3 className="text-xl font-semibold mb-3">{project.name}</h3>
+              <p className="text-gray-700 mb-4 leading-relaxed whitespace-pre-line">
+                {project.description}
+              </p>
+              <div className="flex gap-3">
+                {project.links.map((link) => {
+                  const isVideoLink =
+                    link.name.toLowerCase().includes("video") ||
+                    link.name.toLowerCase().includes("loom");
+
+                  if (isVideoLink) {
+                    return (
+                      <SecondaryButton
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        className="text-sm inline-flex items-center gap-1"
+                        title="Watch demo video"
+                      >
+                        <FaPlay className="text-sm" />
+                        <span>Video</span>
+                        {link.duration && (
+                          <span className="text-gray-400 ml-1">
+                            {link.duration}
+                          </span>
+                        )}
+                      </SecondaryButton>
+                    );
+                  }
+
+                  return (
+                    <LinkIconButton
+                      key={link.name}
+                      href={link.url}
+                      target={link.externalLink ? "_blank" : undefined}
+                      rel={
+                        link.externalLink ? "noopener noreferrer" : undefined
+                      }
+                      className="text-sm"
+                    >
+                      <SiGithub />
+                    </LinkIconButton>
+                  );
+                })}
               </div>
-              <p>{skill.name}</p>
             </div>
           ))}
         </div>
-      </Container>
-      <ProjectSection />
-      <Container className="py-24 px-4">
-        <h2 className="mb-4 text-2xl lg:text-3xl font-bold" id="contact">
-          Contact Information
-        </h2>
-        <Link href="/resume.pdf" className="btn secondary" target="_blank">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            style={{
-              width: '19px',
-              height: '19px',
-            }}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-            />
-          </svg>
-          Download resume
-        </Link>
-        <ContactForm />
-      </Container>
-    </>
+      </section>
+    </div>
   );
 };
+
+interface LinkIconButtonProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  children: ReactNode;
+}
+
+const baseButtonClasses = "h-10 px-4 py-2 rounded font-medium";
+const secondaryClasses = "bg-neutral-100 hover:bg-neutral-200 text-gray-700";
+
+function LinkIconButton({
+  children,
+  className = "",
+  ...props
+}: LinkIconButtonProps) {
+  return (
+    <a
+      className={`${baseButtonClasses} ${secondaryClasses} rounded-full h-10 w-10 grid place-content-center ${className}`}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}
+
+function PrimaryButton({
+  children,
+  className = "",
+  href,
+  ...props
+}: LinkIconButtonProps) {
+  return (
+    <a
+      href={href}
+      className={`${baseButtonClasses} bg-blue-500 rounded-4xl cursor-pointer text-white hover:bg-blue-600 button grid place-content-center ${className}`}
+      {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SecondaryButton({
+  children,
+  className = "",
+  ...props
+}: LinkIconButtonProps) {
+  return (
+    <a
+      className={`${baseButtonClasses} ${secondaryClasses} ${className} rounded-4xl cursor-pointer grid place-content-center`}
+      {...props}
+    >
+      {children}
+    </a>
+  );
+}
 
 export default Home;

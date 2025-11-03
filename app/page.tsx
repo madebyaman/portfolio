@@ -1,7 +1,7 @@
 import { projectsList } from "components/data";
 import { ReactNode } from "react";
 import { SiGithub, SiX } from "react-icons/si";
-import { FaPlay } from "react-icons/fa";
+import { FaPlay, FaRocket } from "react-icons/fa";
 
 const Home = () => {
   const featuredProjects = projectsList.filter((p) => p.highlighted);
@@ -62,11 +62,7 @@ const Home = () => {
               </p>
               <div className="flex gap-3">
                 {project.links.map((link) => {
-                  const isVideoLink =
-                    link.name.toLowerCase().includes("video") ||
-                    link.name.toLowerCase().includes("loom");
-
-                  if (isVideoLink) {
+                  if (link.type === "video") {
                     return (
                       <SecondaryButton
                         key={link.name}
@@ -86,6 +82,25 @@ const Home = () => {
                     );
                   }
 
+                  if (link.type === "app") {
+                    return (
+                      <SecondaryButton
+                        key={link.name}
+                        href={link.url}
+                        target="_blank"
+                        className="text-sm inline-flex items-center gap-2"
+                        title="Visit live application"
+                      >
+                        <FaRocket className="text-sm" />
+                        <span>Visit App</span>
+                      </SecondaryButton>
+                    );
+                  }
+
+                  const iconMap = {
+                    github: <SiGithub />,
+                  };
+
                   return (
                     <LinkIconButton
                       key={link.name}
@@ -96,7 +111,9 @@ const Home = () => {
                       }
                       className="text-sm"
                     >
-                      <SiGithub />
+                      {iconMap[link.type as keyof typeof iconMap] || (
+                        <SiGithub />
+                      )}
                     </LinkIconButton>
                   );
                 })}

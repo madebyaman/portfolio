@@ -56,6 +56,7 @@ export type Project = {
   links: {
     name: string;
     url: string;
+    type: 'github' | 'app' | 'video';
     externalLink: boolean;
     duration?: string;
   }[];
@@ -85,12 +86,14 @@ export const projectsList: Project[] = [
       {
         name: "Demo video",
         url: "https://www.dropbox.com/scl/fi/6jc7b4aiux3a29vnlnb1q/original.mp4?rlkey=7365faa7tujzhee5zc4og2ov4&st=x4n8sm9n&dl=0",
+        type: "video",
         externalLink: true,
         duration: "4m",
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/virtualizer",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -132,8 +135,15 @@ export const projectsList: Project[] = [
     ],
     links: [
       {
+        name: "Visit App",
+        url: "https://aicellmate.com",
+        type: "app",
+        externalLink: true,
+      },
+      {
         name: "View on Github",
         url: "https://github.com/madebyaman/ai-cellmate",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -161,6 +171,7 @@ export const projectsList: Project[] = [
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/chord",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -176,16 +187,19 @@ export const projectsList: Project[] = [
       {
         name: "View live",
         url: "https://www.bummaries.app",
+        type: "app",
         externalLink: true,
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/book-notes",
+        type: "github",
         externalLink: true,
       },
       {
         name: "Demo video on loom",
         url: "https://www.loom.com/share/8773464442644aabb53ea64300be5d27",
+        type: "video",
         externalLink: true,
         duration: "3m",
       },
@@ -224,16 +238,19 @@ export const projectsList: Project[] = [
       {
         name: "View live",
         url: "https://activity-logger.vercel.app/",
+        type: "app",
         externalLink: true,
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/activity-logger",
+        type: "github",
         externalLink: true,
       },
       {
         name: "Demo video on loom",
         url: "https://www.loom.com/share/a95eec8cb13e4dcab1936973b9a09cd2",
+        type: "video",
         externalLink: true,
         duration: "3m",
       },
@@ -280,16 +297,19 @@ export const projectsList: Project[] = [
       {
         name: "View live",
         url: "https://note-taking-app-jet.vercel.app/",
+        type: "app",
         externalLink: true,
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/note-taking-app",
+        type: "github",
         externalLink: true,
       },
       {
         name: "Demo video on loom",
         url: "https://www.loom.com/share/2cf92c4ca30f47bc83ae52c4096ea31f",
+        type: "video",
         externalLink: true,
         duration: "3m",
       },
@@ -319,11 +339,13 @@ export const projectsList: Project[] = [
       {
         name: "View live",
         url: "https://beloudmouth.com",
+        type: "app",
         externalLink: true,
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/loud-mouth",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -336,11 +358,13 @@ export const projectsList: Project[] = [
       {
         name: "View live",
         url: "http://shopify-clone-nu.vercel.app/",
+        type: "app",
         externalLink: true,
       },
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/shopify-clone",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -354,6 +378,7 @@ export const projectsList: Project[] = [
       {
         name: "View on Github",
         url: "https://github.com/madebyaman/copywriter-blocks",
+        type: "github",
         externalLink: true,
       },
     ],
@@ -367,6 +392,7 @@ export const projectsList: Project[] = [
       {
         name: "See my programming articles",
         url: "https://amanthakur.me/blog",
+        type: "app",
         externalLink: true,
       },
     ],

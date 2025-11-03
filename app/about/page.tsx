@@ -1,30 +1,30 @@
-import { EnvelopeIcon } from '@heroicons/react/24/solid';
-import { Container } from 'components/container';
-import Navigation from 'components/nav';
-import Image from 'next/image';
-import Link from 'next/link';
-import { SiGithub, SiLinkedin, SiTwitter } from 'react-icons/si';
-import photo from './photo.jpg';
+import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import { Container } from "components/container";
+import Navigation from "components/nav";
+import Image from "next/image";
+import Link from "next/link";
+import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import photo from "./photo.jpg";
 
 const socialLinks = [
   {
-    href: 'https://github.com/madebyaman',
-    name: 'Follow on GitHub',
+    href: "https://github.com/madebyaman",
+    name: "Follow on GitHub",
     icon: SiGithub,
   },
   {
-    href: 'https://twitter.com/imamanthakur',
-    name: 'Follow on Twitter',
-    icon: SiTwitter,
+    href: "https://twitter.com/imamanthakur",
+    name: "Follow on Twitter",
+    icon: SiX,
   },
   {
-    href: 'https://linkedin.com/imamanthakur',
-    name: 'Follow on LinkedIn',
+    href: "https://linkedin.com/imamanthakur",
+    name: "Follow on LinkedIn",
     icon: SiLinkedin,
   },
   {
-    href: 'mailto:amanthakur95@gmail.com',
-    name: 'amanthakur95@gmail.com',
+    href: "mailto:amanthakur95@gmail.com",
+    name: "amanthakur95@gmail.com",
     icon: EnvelopeIcon,
   },
 ];

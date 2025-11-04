@@ -1,34 +1,34 @@
-import '../styles/globals.css';
-import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { Analytics } from '@vercel/analytics/react';
+import "../styles/globals.css";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'Aman Thakur',
-    template: '%s | Aman Thakur',
+    default: "Aman Thakur",
+    template: "%s | Aman Thakur",
   },
-  description: 'Developer, writer, and entrepreneur.',
+  description: "Developer, writer, and entrepreneur.",
   openGraph: {
-    title: 'Aman Thakur',
-    description: 'Developer, writer, and entrepreneur.',
-    url: 'https://amanthakur.me',
-    siteName: 'Aman Thakur',
+    title: "Aman Thakur",
+    description: "Developer, writer, and entrepreneur.",
+    url: "https://amanthakur.me",
+    siteName: "Aman Thakur",
     images: [
       {
-        url: 'https://amanthakur.me/og.png',
+        url: "https://amanthakur.me/og.png",
         width: 1920,
         height: 1080,
       },
     ],
-    locale: 'en-US',
-    type: 'website',
+    locale: "en-US",
+    type: "website",
   },
   robots: {
     index: true,
@@ -36,14 +36,14 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   twitter: {
-    title: 'Aman Thakur',
-    card: 'summary_large_image',
+    title: "Aman Thakur",
+    card: "summary_large_image",
   },
   icons: {
     // shortcut: '/favicon.ico',

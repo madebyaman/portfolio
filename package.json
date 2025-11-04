@@ -13,7 +13,7 @@
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
     "@tailwindcss/postcss": "^4.1.16",
-    "@vercel/analytics": "^0.1.11",
+    "@vercel/analytics": "^1.5.0",
     "@vercel/og": "^0.4.2",
     "clsx": "^1.2.1",
     "gray-matter": "^4.0.3",

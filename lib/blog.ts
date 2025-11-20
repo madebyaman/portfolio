@@ -1,24 +1,24 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { remark } from 'remark';
-import html from 'remark-html';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import { remark } from "remark";
+import html from "remark-html";
 
-const blogDirectory = path.join(process.cwd(), 'blog');
+const blogDirectory = path.join(process.cwd(), "blog");
 
 export function getAllBlogPostIds() {
   const fileNames = fs.readdirSync(blogDirectory);
-  return fileNames.map((fileName) => fileName.replace(/\.md$/, ''));
+  return fileNames.map((fileName) => fileName.replace(/\.md$/, ""));
 }
 
 export async function getBlogData(id: string) {
   const fullPath = path.join(blogDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const matterResult = matter(fileContents);
 
   const processedContent = await remark()
-    .use(html)
+    .use(html, { sanitize: false })
     .process(matterResult.content);
   const contentHtml = processedContent.toString();
 
@@ -34,11 +34,11 @@ export async function getBlogExcerpt() {
 
   return fileNames.map((fileName) => {
     const fullPath = path.join(blogDirectory, fileName);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const matterResult = matter(fileContents);
     return {
-      id: fileName.replace(/\.md$/, ''),
+      id: fileName.replace(/\.md$/, ""),
       date: matterResult.data.date.toString(),
       title: matterResult.data.title,
     };

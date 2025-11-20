@@ -134,7 +134,7 @@ interface LinkIconButtonProps
 const baseButtonClasses = "h-10 px-4 py-2 rounded font-medium";
 const secondaryClasses = "bg-neutral-100 hover:bg-neutral-200 text-gray-700";
 
-function LinkIconButton({
+export function LinkIconButton({
   children,
   className = "",
   ...props
@@ -149,7 +149,7 @@ function LinkIconButton({
   );
 }
 
-function PrimaryButton({
+export function PrimaryButton({
   children,
   className = "",
   href,
@@ -166,7 +166,7 @@ function PrimaryButton({
   );
 }
 
-function SecondaryButton({
+export function SecondaryButton({
   children,
   className = "",
   ...props

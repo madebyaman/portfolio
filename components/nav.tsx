@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Dialog } from '@headlessui/react';
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
 import {
   Bars3Icon,
   BookOpenIcon,
@@ -9,14 +9,14 @@ import {
   FolderIcon,
   UserIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import Image from 'next/image';
+} from "@heroicons/react/24/outline";
+import Link from "next/link";
+import Image from "next/image";
 
 const navigation = [
-  { name: 'Blog', href: '/blog', icon: DocumentTextIcon },
-  { name: 'Projects', href: '/projects', icon: FolderIcon },
-  { name: 'About', href: '/about', icon: UserIcon },
+  { name: "Blog", href: "/blog", icon: DocumentTextIcon },
+  { name: "Projects", href: "/projects", icon: FolderIcon },
+  { name: "About", href: "/about", icon: UserIcon },
 ];
 
 interface NavigationProps extends React.HTMLAttributes<HTMLDivElement> {}
@@ -26,7 +26,10 @@ export default function Navigation(props: NavigationProps) {
 
   return (
     <div {...props}>
-      <nav className="flex items-center justify-between" aria-label="Global">
+      <nav
+        className="flex items-center justify-between"
+        aria-label="Global Navigation"
+      >
         <div className="flex lg:flex-1">
           <Link
             href="/"

@@ -132,7 +132,7 @@ Besides, I also worked on a couple of key improvements
 Outside work, I’m trying to level up my basics again.
 
 - I’ve been revisiting Discrete Math and slowly building the confidence to learn machine learning someday. Stanford CS229 Machine Learning course is on my wish list.
-- I also like staying up to date with AI. It moves fast, and it’s fun to follow. I mean have you seen how good grok-code-fast-1 is? I recently started playing with it and it made me ditch Claude Code.
+- I also like staying up to date with AI. These days playing with google gemini 3 and grok-code-fast-1.
 - I recently picked up Rust and started working through The Rust Book.
 - I like reading too. Red Rising and Empyrean are my current favorites.
 - I enjoy movies as well. Frankenstein was just wow.
